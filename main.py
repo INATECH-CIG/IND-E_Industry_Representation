@@ -92,7 +92,7 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, ste
     def total_steel_prod_rule(model):
         return pyo.quicksum(model.liquid_steel[t] for t in model.t) >= steel_prod
 
-    #cost objective function
+    #cost objective function (elec, NG, and coal)
     def cost_obj_rule(model):
         return pyo.quicksum(model.elec_cost[t] + model.ng_cost[t] + model.coal_cost[t] for t in model.t)
 
@@ -124,6 +124,9 @@ def get_values(model):
     ng_cost = []
     coal_cons = []
     coal_cost = []
+    total_energy_cons = []
+    total_fuel_price = []
+    total_energy_cost = []
     
     
     for i in range(1,optimization_horizon+1):
@@ -136,15 +139,40 @@ def get_values(model):
         ng_cost.append(model.ng_cost[i].value)
         coal_cons.append(model.coal_cons[i].value)
         coal_cost.append(model.coal_cost[i].value)
+        
+ # quick model check that consumption increases with decreasing fuel price 
+        total_energy_cons.append(model.elec_cons[i].value + model.ng_cons[i].value + model.coal_cons[i].value) 
+        total_fuel_price.append(input_data['electricity_price'].iat[i] +\
+                                 fuel_data['natural gas'].iat[i] +\
+                                 fuel_data['hard coal'].iat[i])
+        total_energy_cost.append(model.elec_cost[i].value + model.ng_cost[i].value + model.coal_cost[i].value )
 
-    return iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost
+    return iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
+        total_energy_cons,total_fuel_price, total_energy_cost
 
 # %%
-iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost = get_values(model)
+iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
+    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost = get_values(model)
 
-
-
-
-    
+  
     
 # %%
+
+# Available Flexibility at each time step
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
