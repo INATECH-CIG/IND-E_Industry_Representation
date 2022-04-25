@@ -127,6 +127,9 @@ def get_values(model):
     total_energy_cons = []
     total_fuel_price = []
     total_energy_cost = []
+
+# list to check flexibility calc in model 
+    elec_cons_EH = []
     
     
     for i in range(1,optimization_horizon+1):
@@ -140,6 +143,8 @@ def get_values(model):
         coal_cons.append(model.coal_cons[i].value)
         coal_cost.append(model.coal_cost[i].value)
         
+        elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
+        
  # quick model check that consumption increases with decreasing fuel price 
         total_energy_cons.append(model.elec_cons[i].value + model.ng_cons[i].value + model.coal_cons[i].value) 
         total_fuel_price.append(input_data['electricity_price'].iat[i] +\
@@ -148,17 +153,52 @@ def get_values(model):
         total_energy_cost.append(model.elec_cost[i].value + model.ng_cost[i].value + model.coal_cost[i].value )
 
     return iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
-        total_energy_cons,total_fuel_price, total_energy_cost
+        total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH
 
 # %%
 iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
-    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost = get_values(model)
+    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH = get_values(model)
 
   
     
 # %%
 
 # Available Flexibility at each time step
+
+p_elec_max = 93 + 20 + 85   #max power eh, drp, arc furnace
+
+p_elec_max_EH = 93
+
+p_elec_min = 40  #23 + 5 + 21   #min power eh, drp, arc furnace
+
+p_elec_min_EH = 23
+
+def flexibility_available(model, elec_cons) :
+    
+    pos_flex_total = []
+    neg_flex_total = []
+    neg_flex_EH = []
+    pos_flex_EH = []
+     
+    for i in range(1, optimization_horizon+1):
+                 
+    # potential to increase elec consumption from grid
+      neg_flex_total.append(p_elec_max - elec_cons[i-1])
+      
+     # potential to reduce elec consumption         
+      pos_flex_total.append(elec_cons[i-1] - p_elec_min)
+     
+        
+      neg_flex_EH.append(p_elec_max_EH - spec_elec_cons['electric_heater']*model.iron_ore[i].value)
+    
+      pos_flex_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value - p_elec_min_EH)          
+         
+        
+     
+    return pos_flex_total, neg_flex_total, neg_flex_EH, pos_flex_EH
+
+
+ 
 
 
 
