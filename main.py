@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Sun May  8 07:58:23 2022
+
+@author: louis
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Mon Apr  4 13:07:25 2022
 
 @author: louis
@@ -9,6 +16,7 @@ import pandas as pd
 import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 import pprint
+from misc import time_series_plot
 # %%
 solver = pyo.SolverFactory('glpk')  # alternative : gurobi 
 
@@ -32,6 +40,18 @@ spec_coal_cons = {'arc_furnace' : .028}
 iron_mass_ratio = {'iron': 1.66,
          'DRI': 1.03,
          'liquid_steel': 1}
+
+power_limits = {'EH_max': 93,
+                'EH_min': 23,
+                'DRP_max': 20,
+                'DRP_min': 5,
+                'AF_max': 85,
+                'AF_min': 21}
+
+#Dictionary for flexibility parameters
+flexibility = {'hour_called': 5,
+               'amt_called': 100,
+               'type': ['pos','neg']}
 
 optimization_horizon = 5
 
@@ -165,21 +185,15 @@ iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
 
 # Available Flexibility at each time step
 
-p_elec_max = 93 + 20 + 85   #max power eh, drp, arc furnace
+p_elec_max = power_limits['EH_max'] + power_limits['DRP_max'] + power_limits['AF_max']    #max power eh, drp, arc furnace
 
-p_elec_max_EH = 93
-
-p_elec_min = 40  #23 + 5 + 21   #min power eh, drp, arc furnace
-
-p_elec_min_EH = 23
+p_elec_min = power_limits['EH_min'] + power_limits['DRP_min'] + power_limits['AF_min']  
 
 def flexibility_available(model, elec_cons) :
     
     pos_flex_total = []
     neg_flex_total = []
-    neg_flex_EH = []
-    pos_flex_EH = []
-     
+        
     for i in range(1, optimization_horizon+1):
                  
     # potential to increase elec consumption from grid
@@ -188,18 +202,12 @@ def flexibility_available(model, elec_cons) :
      # potential to reduce elec consumption         
       pos_flex_total.append(elec_cons[i-1] - p_elec_min)
      
-        
-      neg_flex_EH.append(p_elec_max_EH - spec_elec_cons['electric_heater']*model.iron_ore[i].value)
-    
-      pos_flex_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value - p_elec_min_EH)          
-         
-        
+                  
      
-    return pos_flex_total, neg_flex_total, neg_flex_EH, pos_flex_EH
+    return pos_flex_total, neg_flex_total
 
 
- 
-
+pos_flex_total, neg_flex_total = flexibility_available(model, elec_cons) 
 
 
 
