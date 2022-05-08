@@ -201,9 +201,7 @@ def flexibility_available(model, elec_cons) :
       
      # potential to reduce elec consumption         
       pos_flex_total.append(elec_cons[i-1] - p_elec_min)
-     
-                  
-     
+                      
     return pos_flex_total, neg_flex_total
 
 
