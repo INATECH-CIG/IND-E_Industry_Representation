@@ -70,9 +70,9 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
     
     model.time = pyo.Param(model.t, initialize = 0)
         
-    model.iron_ore = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (62.5,250))
-    model.dri = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (40,155))
-    model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (37.5,150))
+    model.iron_ore = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (62.5,250)) #bounds 62.5- 250
+    model.dri = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (40,155))        #bounds 40-155
+    model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (37.5,150))  #bounds 37.5 - 150
 
     model.elec_cons = pyo.Var(model.t, domain = pyo.NonNegativeReals)
     model.ng_cons = pyo.Var(model.t, domain = pyo.NonNegativeReals)
@@ -104,24 +104,26 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
     def elec_cost_rule(model, t):
         return model.elec_cost[t] == input_data['electricity_price'].iat[t]*model.elec_cons[t]
     
-    #flexibility rule
-    def elec_flex_rule(t, model):
-        if model.time == flexibility['hour_called']:
-        #reduce consumption
-            if model.elec_cons[t] > flexibility['amt_called']:
-                model.pos_flex[t] == model.elec_cons[t] - power_limits['Total_min'] 
-                model.elec_cons[t] == model.elec_cons[t] - model.pos_flex[t]
-                
-                return model.elec_cons[t]
-            
-            #increase consumption
-            if model.elec_cons[t] < flexibility['amt_called']: 
-                model.neg_flex[t] == power_limits['Total_max'] - model.elec_cons[t]
-                model.elec_cons[t] == model.elec_cons[t] + model.neg_flex[t]
-                return model.elec_cons[t] 
-        else:
-            return 
-        
+# =============================================================================
+#     #flexibility rule
+#     def elec_flex_rule(t, model):
+#         if model.time == flexibility['hour_called']:
+#         #reduce consumption
+#             if model.elec_cons[t] > flexibility['amt_called']:
+#                 model.pos_flex[t] == model.elec_cons[t] - power_limits['Total_min'] 
+#                 model.elec_cons[t] == model.elec_cons[t] - model.pos_flex[t]
+#                 
+#                 return model.elec_cons[t]
+#             
+#             #increase consumption
+#             if model.elec_cons[t] < flexibility['amt_called']: 
+#                 model.neg_flex[t] == power_limits['Total_max'] - model.elec_cons[t]
+#                 model.elec_cons[t] == model.elec_cons[t] + model.neg_flex[t]
+#                 return model.elec_cons[t] 
+#         else:
+#             return 
+#         
+# =============================================================================
         
     #total NG consumption
     def ng_consumption_rule(model,t):
@@ -158,7 +160,7 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
     model.total_steel_prod_rule = pyo.Constraint(rule = total_steel_prod_rule)
     
     #flexibility constraint included if called
-    model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
+    #model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
 # =============================================================================
 #     if model.time[t] == flexibility['hour_called']:
 #         model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
@@ -169,7 +171,7 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
 
     return model
 # %%
-steel_prod = 2000
+steel_prod = 10
 model = Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
                   steel_prod, optimization_horizon, flexibility)
 solved_model = solver.solve(model)
@@ -195,6 +197,9 @@ def get_values(model):
 
 # list to check flexibility calc in model 
     elec_cons_EH = []
+    elec_cons_DRP = []
+    elec_cons_AF = []
+    
     
     
     for i in range(1,optimization_horizon+1):
@@ -211,6 +216,8 @@ def get_values(model):
         coal_cost.append(model.coal_cost[i].value)
                 
         elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
+        elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri[i].value)
+        elec_cons_AF.append( spec_elec_cons['arc_furnace']*model.liquid_steel[i].value)
         
  # quick model check that consumption increases with decreasing fuel price 
         total_energy_cons.append(model.elec_cons[i].value + model.ng_cons[i].value + model.coal_cons[i].value) 
@@ -223,12 +230,12 @@ def get_values(model):
         neg_flex.append(model.neg_flex[i].value)
 
     return time,elec_price,iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
-        total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH, pos_flex, neg_flex
+        total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex
 
 # %%
 time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
     coal_cost, total_energy_cons,total_fuel_price, total_energy_cost,\
-        elec_cons_EH, pos_flex, neg_flex = get_values(model)
+        elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex = get_values(model)
 
   
     
