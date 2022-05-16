@@ -17,6 +17,8 @@ import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 import pprint
 from misc import time_series_plot
+
+import matplotlib.pyplot as plt
 # %%
 solver = pyo.SolverFactory('glpk')  # alternative : gurobi 
 
@@ -50,26 +52,19 @@ power_limits = {'EH_max': 93,
                 'Total_max': 198,
                 'Total_min':49 }
 
-#Dictionary for flexibility parameters
-flexibility = {'hour_called': 11,
-               'amt_called': 100,
-               'type': ['pos','neg']}
-
-optimization_horizon = 20
+optimization_horizon = 24
 
 #Set x-axis for line series plot function
 
 
 # %%
-def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
-              steel_prod, optimization_horizon, flexibility):
+def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio,
+              steel_prod, optimization_horizon, flexibility_params):
    
     model = pyo.ConcreteModel()
     
     model.t = pyo.RangeSet(1, optimization_horizon)
-    
-    model.time = pyo.Param(model.t, initialize = 0)
-        
+            
     model.iron_ore = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (62.5,250)) #bounds 62.5- 250
     model.dri = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (40,155))        #bounds 40-155
     model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (37.5,150))  #bounds 37.5 - 150
@@ -106,22 +101,15 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
     
 # =============================================================================
 #     #flexibility rule
-#     def elec_flex_rule(t, model):
-#         if model.time == flexibility['hour_called']:
-#         #reduce consumption
-#             if model.elec_cons[t] > flexibility['amt_called']:
-#                 model.pos_flex[t] == model.elec_cons[t] - power_limits['Total_min'] 
-#                 model.elec_cons[t] == model.elec_cons[t] - model.pos_flex[t]
-#                 
-#                 return model.elec_cons[t]
-#             
-#             #increase consumption
-#             if model.elec_cons[t] < flexibility['amt_called']: 
-#                 model.neg_flex[t] == power_limits['Total_max'] - model.elec_cons[t]
-#                 model.elec_cons[t] == model.elec_cons[t] + model.neg_flex[t]
-#                 return model.elec_cons[t] 
-#         else:
-#             return 
+    def elec_flex_rule(model, t):
+        if t == flexibility_params['hour_called']:
+        #reduce consumption
+            if flexibility_params['type'] == 'pos':
+                return model.elec_cons[t] <= flexibility_params['amt_called']
+            else:
+                return model.elec_cons[t] >= flexibility_params['amt_called']
+        else:
+            return model.elec_cons[t] >= 0
 #         
 # =============================================================================
         
@@ -160,20 +148,21 @@ def Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
     model.total_steel_prod_rule = pyo.Constraint(rule = total_steel_prod_rule)
     
     #flexibility constraint included if called
-    #model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
-# =============================================================================
-#     if model.time[t] == flexibility['hour_called']:
-#         model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
-# =============================================================================
-    
+    if flexibility_params is not None:
+        model.elec_flex_rule = pyo.Constraint(model.t, rule = elec_flex_rule)
         
     model.obj = pyo.Objective(rule = cost_obj_rule, sense = pyo.minimize)
 
     return model
 # %%
-steel_prod = 10
+#Dictionary for flexibility parameters
+flexibility = {'hour_called': 10,
+               'amt_called': pos_flex_total[9],
+               'type': 'pos'}
+
+steel_prod = 2000
 model = Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
-                  steel_prod, optimization_horizon, flexibility)
+                  steel_prod, optimization_horizon, None)
 solved_model = solver.solve(model)
 # %%
 def get_values(model):
@@ -266,17 +255,37 @@ def flexibility_available(model, elec_cons) :
 pos_flex_total, neg_flex_total = flexibility_available(model, elec_cons) 
 
 
+# %%
+plt.figure()
+plt.plot(range(1,optimization_horizon+1), elec_cons)
+plt.xticks(range(1,optimization_horizon+1))
+plt.show()
 
 
 
+# %%
+opt_elec_cons = elec_cons
+opt_cost = sum(elec_cost)
+# %%
+flex_hour = 10
+flexibility = {'hour_called': flex_hour,
+               'amt_called': 60,
+               'type': 'pos'}
 
+steel_prod = 2000
+model = Price_Opt(spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio, \
+                  steel_prod, optimization_horizon, flexibility)
+solved_model = solver.solve(model)
 
+# %%
+time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
+    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost,\
+        elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex = get_values(model)
 
+# %%
+plt.figure()
+plt.plot(range(1,optimization_horizon+1), elec_cons)
+plt.xticks(range(1,optimization_horizon+1))
+plt.show()
 
-
-
-
-
-
-
-
+# %%
