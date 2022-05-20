@@ -24,6 +24,8 @@ import pyomo.environ as pyo
 from pyomo.opt import SolverFactory
 import pprint
 from misc import time_series_plot
+from misc import get_values
+from misc import flexibility_available
 from optimization import Price_Opt
 
 import matplotlib.pyplot as plt
@@ -51,14 +53,6 @@ iron_mass_ratio = {'iron': 1.66,
          'DRI': 1.03,
          'liquid_steel': 1}
 
-power_limits = {'EH_max': 93,
-                'EH_min': 23,
-                'DRP_max': 20,
-                'DRP_min': 5,
-                'AF_max': 85,
-                'AF_min': 21,
-                'Total_max': 198,
-                'Total_min':49 }
 
 #%%
 # Run model without flexibility 
@@ -71,7 +65,7 @@ model = Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal
 solved_model = solver.solve(model)
 
 
-time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
+model_params,time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
     coal_cost, total_energy_cons,total_fuel_price, total_energy_cost,\
         elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex = get_values(model,optimization_horizon,\
                                                                                    input_data, fuel_data, \
@@ -81,7 +75,20 @@ time_series_plot(time,elec_cons)
 
 base_case_cons = elec_cons
 base_case_cost = sum(elec_cost)
-  
+
+#%%
+
+power_limits = {'EH_max': max(elec_cons_EH),               #93
+                'EH_min': min(elec_cons_EH),               #23
+                'DRP_max':max(elec_cons_DRP),              #20
+                'DRP_min': min(elec_cons_DRP),               #5
+                'AF_max': max(elec_cons_AF),               #85
+                'AF_min': min(elec_cons_AF),               #21
+                'Total_max': max(elec_cons_EH) + max(elec_cons_DRP)+ max(elec_cons_AF),           #198
+                'Total_min':min(elec_cons_EH) + min(elec_cons_DRP)+ min(elec_cons_AF) }            #49
+
+#Flexibility vailable at each time step 
+pos_flex_total, neg_flex_total = flexibility_available(model, elec_cons, power_limits, optimization_horizon) 
     
 # %%
 # Run model with flexibility called 
@@ -114,28 +121,3 @@ flex_case_cost = sum(elec_cost)
 cost_flexibility = (flex_case_cost - base_case_cost)/100   #Euro/MWh
 
 #%%
-
-# Available Flexibility at each time step
-
-p_elec_max = power_limits['EH_max'] + power_limits['DRP_max'] + power_limits['AF_max']    #max power eh, drp, arc furnace
-
-p_elec_min = power_limits['EH_min'] + power_limits['DRP_min'] + power_limits['AF_min']  
-
-def flexibility_available(model, elec_cons) :
-    
-    pos_flex_total = []
-    neg_flex_total = []
-        
-    for i in range(1, optimization_horizon+1):
-                 
-    # potential to increase elec consumption from grid
-      neg_flex_total.append(p_elec_max - elec_cons[i-1])
-      
-     # potential to reduce elec consumption         
-      pos_flex_total.append(elec_cons[i-1] - p_elec_min)
-                      
-    return pos_flex_total, neg_flex_total
-
-
-pos_flex_total, neg_flex_total = flexibility_available(model, elec_cons) 
-
