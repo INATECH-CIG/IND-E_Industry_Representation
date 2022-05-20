@@ -4,11 +4,6 @@
 '''
 
 import matplotlib.pyplot as plt
-
-x1 = [1,2,3,4]
-x2 = [7,8,9,10]
-t = [0,1,2,3]
-
  
 #%%    
 
@@ -48,6 +43,8 @@ def time_series_plot(time,*args):
 #%%
 
 def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons):
+    
+    model_params = dict()
     
     time = []
     elec_price = []
@@ -99,6 +96,33 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
 
         pos_flex.append(model.pos_flex[i].value) 
         neg_flex.append(model.neg_flex[i].value)
+        
+        model_params['time_step'] = time
 
-    return time,elec_price,iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
+    return model_params, time,elec_price,iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
         total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex
+        
+        
+        
+#%%       
+       
+# Available Flexibility at each time step
+
+def flexibility_available(model, elec_cons, power_limits, optimization_horizon) :
+    
+    pos_flex_total = []
+    neg_flex_total = []
+        
+    for i in range(1, optimization_horizon+1):
+                 
+    # potential to increase elec consumption from grid
+      neg_flex_total.append(power_limits['Total_max'] - elec_cons[i-1])
+      
+     # potential to reduce elec consumption         
+      pos_flex_total.append(elec_cons[i-1] - power_limits['Total_min'])
+                      
+    return pos_flex_total, neg_flex_total
+
+
+
+
