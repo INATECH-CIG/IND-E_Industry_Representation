@@ -98,9 +98,24 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         neg_flex.append(model.neg_flex[i].value)
         
         model_params['time_step'] = time
-
-    return model_params, time,elec_price,iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons, coal_cost,\
-        total_energy_cons,total_fuel_price, total_energy_cost, elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex
+        model_params['elec_price'] = elec_price
+        model_params['iron_ore'] = iron_ore
+        model_params['dri'] = dri
+        model_params['liquid_steel'] =liquid_steel
+        model_params['elec_cons'] =elec_cons
+        model_params['ng_cons'] = ng_cons
+        model_params['coal_cons'] =coal_cons
+        model_params['coal_cost'] = coal_cost
+        model_params['elec_cons_EH'] =elec_cons_EH
+        model_params['elec_cons_DRP'] = elec_cons_DRP
+        model_params['elec_cons_AF'] =elec_cons_AF
+        model_params['total_energy_cons'] =total_energy_cons
+        model_params['total_fuel_price'] = total_fuel_price
+        model_params['total_energy_cost'] = total_energy_cost
+        model_params['pos_flex'] = pos_flex
+        model_params['neg_flex'] = neg_flex
+        
+    return model_params
         
         
         
