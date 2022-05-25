@@ -65,30 +65,28 @@ model = Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal
 solved_model = solver.solve(model)
 
 
-model_params,time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
-    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost,\
-        elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex = get_values(model,optimization_horizon,\
-                                                                                   input_data, fuel_data, \
-                                                                                       spec_elec_cons)
+model_params = get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons)
+                                                                                  
 
-time_series_plot(time,elec_cons)
+time_series_plot(model_params['time_step'],model_params['elec_cons'])
 
-base_case_cons = elec_cons
-base_case_cost = sum(elec_cost)
+base_case_cons = model_params['elec_cons']
+base_case_cost = sum(model_params['elec_cons'])
 
 #%%
 
-power_limits = {'EH_max': max(elec_cons_EH),               #93
-                'EH_min': min(elec_cons_EH),               #23
-                'DRP_max':max(elec_cons_DRP),              #20
-                'DRP_min': min(elec_cons_DRP),               #5
-                'AF_max': max(elec_cons_AF),               #85
-                'AF_min': min(elec_cons_AF),               #21
-                'Total_max': max(elec_cons_EH) + max(elec_cons_DRP)+ max(elec_cons_AF),           #198
-                'Total_min':min(elec_cons_EH) + min(elec_cons_DRP)+ min(elec_cons_AF) }            #49
+power_limits = {'EH_max': max(model_params['elec_cons_EH']),               #93
+                'EH_min': min(model_params['elec_cons_EH']),               #23
+                'DRP_max':max(model_params['elec_cons_DRP']),              #20
+                'DRP_min': min(model_params['elec_cons_DRP']),               #5
+                'AF_max': max(model_params['elec_cons_AF']),               #85
+                'AF_min': min(model_params['elec_cons_AF']),               #21
+                'Total_max': max(model_params['elec_cons_EH']) + max(model_params['elec_cons_DRP']) +\
+                                  max(model_params['elec_cons_AF']),           #198
+                'Total_min':min(model_params['elec_cons_EH']) + min(model_params['elec_cons_DRP'])+ min(model_params['elec_cons_AF']) }            #49
 
-#Flexibility vailable at each time step 
-pos_flex_total, neg_flex_total = flexibility_available(model, elec_cons, power_limits, optimization_horizon) 
+#Flexibility available at each time step 
+pos_flex_total, neg_flex_total = flexibility_available(model, model_params['elec_cons'], power_limits, optimization_horizon) 
     
 # %%
 # Run model with flexibility called 
@@ -106,17 +104,13 @@ model = Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal
 solved_model = solver.solve(model)
 
 
-time,elec_price, iron_ore, dri, liquid_steel, elec_cons, elec_cost, ng_cons, ng_cost, coal_cons,\
-    coal_cost, total_energy_cons,total_fuel_price, total_energy_cost,\
-        elec_cons_EH, elec_cons_DRP, elec_cons_AF, pos_flex, neg_flex = get_values(model,optimization_horizon,\
+model_params = get_values(model,optimization_horizon,\
                                                                                    input_data, fuel_data, \
                                                                                        spec_elec_cons)
+time_series_plot(model_params['time_step'],model_params['elec_cons'])
 
-time_series_plot(time,elec_cons)
-
-flex_case_cons = elec_cons
-flex_case_cost = sum(elec_cost)
-  
+flex_case_cons = model_params['elec_cons']
+flex_case_cost = sum(model_params['elec_cons'])
 
 cost_flexibility = (flex_case_cost - base_case_cost)/100   #Euro/MWh
 
