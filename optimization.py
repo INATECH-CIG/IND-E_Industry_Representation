@@ -11,15 +11,22 @@ from pyomo.opt import SolverFactory
 
 solver = pyo.SolverFactory('glpk') 
 
-def Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal_cons, iron_mass_ratio,
-              steel_prod, optimization_horizon, flexibility_params):
-   
+def Price_Opt(input_data,
+              fuel_data,
+              spec_elec_cons,
+              spec_ng_cons,
+              spec_coal_cons,
+              iron_mass_ratio,
+              steel_prod,
+              optimization_horizon,
+              flexibility_params=None):
+
     model = pyo.ConcreteModel()
     
     model.t = pyo.RangeSet(1, optimization_horizon)
             
     model.iron_ore = pyo.Var(model.t, domain = pyo.NonNegativeReals) #bounds 62.5- 250
-    model.iron_ore_on = pyo.Var(model.t, domain = pyo.Binary)
+    model.iron_ore_on = pyo.Var(model.t, within=pyo.Binary)
 
     model.dri_direct = pyo.Var(model.t, domain = pyo.NonNegativeReals)        #bounds 40-155
     model.dri_to_storage = pyo.Var(model.t, domain = pyo.NonNegativeReals)
@@ -43,17 +50,23 @@ def Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal_con
 
     #represents the step of electric arc furnace
     def eaf_rule(model, t):
-        return model.liquid_steel[t] == (model.dri_direct[t] + model.dri_from_storage[t]) / iron_mass_ratio['DRI']
+        return model.liquid_steel[t] == (model.dri_direct[t] + model.dri_from_storage[t]*0.95) / iron_mass_ratio['DRI']
 
     #represents the direct reduction plant
     def iron_reduction_rule(model, t):
         return model.dri_direct[t] + model.dri_to_storage[t] == model.iron_ore[t] / iron_mass_ratio['iron']
 
-    def dri_limits_rule(model, t):
-        return model.iron_ore_on[t]*40 <= (model.dri_direct[t] + model.dri_to_storage[t]) <= model.iron_ore_on[t]*200
+    def dri_min_rule(model, t):
+        return (model.dri_direct[t] + model.dri_to_storage[t]) >= 40*model.iron_ore_on[t]
     
-    def iron_ore_limits_rule(model, t):
-        return model.iron_ore_on[t]*62.5 <= model.iron_ore[t] <= model.iron_ore_on[t]*300
+    def dri_max_rule(model, t):
+        return (model.dri_direct[t] + model.dri_to_storage[t]) <= 200*model.iron_ore_on[t]
+    
+    def iron_ore_min_rule(model, t):
+        return model.iron_ore[t] >= 62.5*model.iron_ore_on[t]
+        
+    def iron_ore_max_rule(model, t):
+        return model.iron_ore[t] <= 300*model.iron_ore_on[t]
     
     def storage_rule(model, t):
         if t==1:
@@ -64,7 +77,7 @@ def Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal_con
     #total electricity consumption
     def elec_consumption_rule(model, t):
         return model.elec_cons[t] == spec_elec_cons['electric_heater']*model.iron_ore[t] + \
-            spec_elec_cons['iron_reduction']*model.dri[t] + \
+            spec_elec_cons['iron_reduction']*(model.dri_direct[t] + model.dri_from_storage[t]) + \
             spec_elec_cons['arc_furnace']*model.liquid_steel[t]
 
     #total electricity cost
@@ -87,7 +100,7 @@ def Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal_con
         
     #total NG consumption
     def ng_consumption_rule(model,t):
-        return model.ng_cons[t] == spec_ng_cons['iron_reduction']*model.dri[t] + \
+        return model.ng_cons[t] == spec_ng_cons['iron_reduction']*(model.dri_direct[t] + model.dri_from_storage[t]) + \
             spec_ng_cons['arc_furnace']*model.liquid_steel[t] 
     
     #total NG cost
@@ -120,8 +133,11 @@ def Price_Opt(input_data, fuel_data, spec_elec_cons, spec_ng_cons, spec_coal_con
     model.total_steel_prod_rule = pyo.Constraint(rule = total_steel_prod_rule)
 
     model.storage_rule = pyo.Constraint(model.t, rule = storage_rule)
-    model.dri_limits_rule = pyo.Constraint(model.t, rule = dri_limits_rule)
-    model.iron_ore_limits_rule = pyo.Constraint(model.t, rule = iron_ore_limits_rule)
+    model.dri_min_rule = pyo.Constraint(model.t, rule = dri_min_rule)
+    model.dri_max_rule = pyo.Constraint(model.t, rule = dri_max_rule)
+
+    model.iron_ore_min_rule = pyo.Constraint(model.t, rule = iron_ore_min_rule)
+    model.iron_ore_max_rule = pyo.Constraint(model.t, rule = iron_ore_max_rule)
     
     #flexibility constraint included if called
     if flexibility_params is not None:

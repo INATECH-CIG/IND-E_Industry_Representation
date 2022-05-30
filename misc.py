@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 #%%    
 
 def time_series_plot(time,*args):
-    
    if len(args) <= 1:
        fig = plt.figure()
        
@@ -20,21 +19,16 @@ def time_series_plot(time,*args):
            plt.plot(data)
            plt.xticks(time)
             
-    
    else:
-        fig, ax = plt.subplots(nrows=len(args),ncols=1, sharex=(True)) 
-              
+        fig, ax = plt.subplots(nrows=len(args), ncols=1, sharex=(True)) 
         y_values =[]
                 
         for data in args:           
             y_values.append(data) 
                             
         for i in range(0,len(args)):           
-                                      
             ax[i].plot(time, y_values[i]) 
-           
-                        #x[i]._get_lines.get_next_color()
-                    
+                               
    plt.xticks(time)             
    plt.xlabel('Time[h]')    
                                         
@@ -49,7 +43,8 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
     time = []
     elec_price = []
     iron_ore = []
-    dri = []
+    dri_direct = []
+    dri_to_storage = []
     liquid_steel = []
     elec_cons = []
     elec_cost = []
@@ -68,13 +63,12 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
     elec_cons_DRP = []
     elec_cons_AF = []
     
-    
-    
     for i in range(1,optimization_horizon+1):
         time.append(i)
         elec_price.append(input_data['electricity_price'][i])
         iron_ore.append(model.iron_ore[i].value)
-        dri.append(model.dri[i].value)
+        dri_direct.append(model.dri_direct[i].value)
+        dri_to_storage.append(model.dri_to_storage[i].value)
         liquid_steel.append(model.liquid_steel[i].value)
         elec_cons.append(model.elec_cons[i].value)
         elec_cost.append(model.elec_cost[i].value)
@@ -84,7 +78,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         coal_cost.append(model.coal_cost[i].value)
                 
         elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
-        elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri[i].value)
+        elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri_direct[i].value)
         elec_cons_AF.append( spec_elec_cons['arc_furnace']*model.liquid_steel[i].value)
         
  # quick model check that consumption increases with decreasing fuel price 
@@ -100,7 +94,8 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         model_params['time_step'] = time
         model_params['elec_price'] = elec_price
         model_params['iron_ore'] = iron_ore
-        model_params['dri'] = dri
+        model_params['dri_direct'] = dri_direct
+        model_params['dri_to_storage'] = dri_to_storage
         model_params['liquid_steel'] =liquid_steel
         model_params['elec_cons'] =elec_cons
         model_params['ng_cons'] = ng_cons
