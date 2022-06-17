@@ -27,7 +27,7 @@ def Price_Opt(input_data,
     model.t = pyo.RangeSet(1, optimization_horizon)
             
     model.iron_ore = pyo.Var(model.t, domain = pyo.NonNegativeReals) #bounds 62.5- 250
-    model.iron_ore_on = pyo.Var(model.t, within=pyo.Binary)
+    model.storage_status = pyo.Var(model.t, within=pyo.Binary)
 
     model.dri_direct = pyo.Var(model.t, domain = pyo.NonNegativeReals)        #bounds 40-155
     model.dri_to_storage = pyo.Var(model.t, domain = pyo.NonNegativeReals)
@@ -35,7 +35,7 @@ def Price_Opt(input_data,
     
     model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (limits['min_ls'],limits['max_ls']))  #bounds 37.5 - 150
 
-    model.storage = pyo.Var(model.t, domain=pyo.NonNegativeReals, bounds=(0,100))
+    model.storage = pyo.Var(model.t, domain=pyo.NonNegativeReals, bounds=(0,limits['max_dri']))
     
     model.elec_cons = pyo.Var(model.t, domain = pyo.NonNegativeReals)
     model.ng_cons = pyo.Var(model.t, domain = pyo.NonNegativeReals)
@@ -58,16 +58,16 @@ def Price_Opt(input_data,
         return model.dri_direct[t] + model.dri_to_storage[t] == model.iron_ore[t] / iron_mass_ratio['iron']
 
     def dri_min_rule(model, t):
-        return (model.dri_direct[t] + model.dri_to_storage[t]) >= limits['min_dri']*model.iron_ore_on[t]
+        return (model.dri_direct[t] + model.dri_to_storage[t]) >= limits['min_dri']*model.storage_status[t]
     
     def dri_max_rule(model, t):
-        return (model.dri_direct[t] + model.dri_to_storage[t]) <= limits['max_dri']*model.iron_ore_on[t]
+        return (model.dri_direct[t] + model.dri_to_storage[t]) <= limits['max_dri']*model.storage_status[t]
     
     def iron_ore_min_rule(model, t):
-        return model.iron_ore[t] >= limits['min_iron']*model.iron_ore_on[t]     #62.5
+        return model.iron_ore[t] >= limits['min_iron']*model.storage_status[t]     #62.5
         
     def iron_ore_max_rule(model, t):
-        return model.iron_ore[t] <= limits['max_iron']*model.iron_ore_on[t]
+        return model.iron_ore[t] <= limits['max_iron']*model.storage_status[t]
     
     def storage_rule(model, t):
         if t==1:

@@ -4,6 +4,7 @@
 '''
 
 import matplotlib.pyplot as plt
+import numpy as np
  
 #%%    
 
@@ -46,8 +47,10 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
     time = []
     elec_price = []
     iron_ore = []
+    storage_status = []
     dri_direct = []
     dri_to_storage = []
+    dri_from_storage = []
     liquid_steel = []
     elec_cons = []
     elec_cost = []
@@ -65,7 +68,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
     elec_cons_EH = []
     elec_cons_DRP = []
     elec_cons_AF = []
-    
+    storage = []
 
     
     for i in range(1,optimization_horizon+1):
@@ -74,6 +77,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         iron_ore.append(model.iron_ore[i].value)
         dri_direct.append(model.dri_direct[i].value)
         dri_to_storage.append(model.dri_to_storage[i].value)
+        model.dri_from_storage.append( model.dri_from_storage[i].value)
         liquid_steel.append(model.liquid_steel[i].value)
         elec_cons.append(model.elec_cons[i].value)
         elec_cost.append(model.elec_cost[i].value)
@@ -81,11 +85,14 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         ng_cost.append(model.ng_cost[i].value)
         coal_cons.append(model.coal_cons[i].value)
         coal_cost.append(model.coal_cost[i].value)
+        
                 
 
         elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
         elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri_direct[i].value)
         elec_cons_AF.append( spec_elec_cons['arc_furnace']*model.liquid_steel[i].value)
+        storage_status.append(model.storage_status[i].value)
+        storage.append(model.storage[i].value)
 
         
  # quick model check that consumption increases with decreasing fuel price 
@@ -119,6 +126,8 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         model_params['total_energy_cons'] =total_energy_cons
         model_params['total_fuel_price'] = total_fuel_price
         model_params['total_energy_cost'] = total_energy_cost
+        model_params['storage_status'] = storage_status
+        model_params['storage'] = storage
         #model_params['pos_flex'] = pos_flex
         #model_params['neg_flex'] = neg_flex
         
