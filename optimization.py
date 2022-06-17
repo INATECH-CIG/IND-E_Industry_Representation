@@ -19,7 +19,8 @@ def Price_Opt(input_data,
               iron_mass_ratio,
               steel_prod,
               optimization_horizon,
-              flexibility_params=None):
+              limits,
+              flexibility_params=None,):
 
     model = pyo.ConcreteModel()
     
@@ -32,7 +33,7 @@ def Price_Opt(input_data,
     model.dri_to_storage = pyo.Var(model.t, domain = pyo.NonNegativeReals)
     model.dri_from_storage = pyo.Var(model.t, domain = pyo.NonNegativeReals)
     
-    model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (36.5,150))  #bounds 37.5 - 150
+    model.liquid_steel = pyo.Var(model.t, domain = pyo.NonNegativeReals, bounds = (limits['min_ls'],limits['max_ls']))  #bounds 37.5 - 150
 
     model.storage = pyo.Var(model.t, domain=pyo.NonNegativeReals, bounds=(0,100))
     
@@ -57,16 +58,16 @@ def Price_Opt(input_data,
         return model.dri_direct[t] + model.dri_to_storage[t] == model.iron_ore[t] / iron_mass_ratio['iron']
 
     def dri_min_rule(model, t):
-        return (model.dri_direct[t] + model.dri_to_storage[t]) >= 40*model.iron_ore_on[t]
+        return (model.dri_direct[t] + model.dri_to_storage[t]) >= limits['min_dri']*model.iron_ore_on[t]
     
     def dri_max_rule(model, t):
-        return (model.dri_direct[t] + model.dri_to_storage[t]) <= 200*model.iron_ore_on[t]
+        return (model.dri_direct[t] + model.dri_to_storage[t]) <= limits['max_dri']*model.iron_ore_on[t]
     
     def iron_ore_min_rule(model, t):
-        return model.iron_ore[t] >= 62.5*model.iron_ore_on[t]
+        return model.iron_ore[t] >= limits['min_iron']*model.iron_ore_on[t]     #62.5
         
     def iron_ore_max_rule(model, t):
-        return model.iron_ore[t] <= 300*model.iron_ore_on[t]
+        return model.iron_ore[t] <= limits['max_iron']*model.iron_ore_on[t]
     
     def storage_rule(model, t):
         if t==1:
