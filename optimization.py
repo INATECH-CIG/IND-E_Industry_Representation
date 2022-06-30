@@ -91,9 +91,9 @@ def Price_Opt(input_data,
         if t == flexibility_params['hour_called']:
         #reduce consumption
             if flexibility_params['type'] == 'pos':
-                return model.elec_cons[t] <= flexibility_params['amt_called']
+                return model.elec_cons[t] <= flexibility_params['cons_signal']
             else:
-                return model.elec_cons[t] >= flexibility_params['amt_called']
+                return model.elec_cons[t] >= flexibility_params['cons_signal']
         else:
             return model.elec_cons[t] >= 0
 #         

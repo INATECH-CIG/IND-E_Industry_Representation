@@ -77,7 +77,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         iron_ore.append(model.iron_ore[i].value)
         dri_direct.append(model.dri_direct[i].value)
         dri_to_storage.append(model.dri_to_storage[i].value)
-        model.dri_from_storage.append( model.dri_from_storage[i].value)
+        dri_from_storage.append( model.dri_from_storage[i].value)
         liquid_steel.append(model.liquid_steel[i].value)
         elec_cons.append(model.elec_cons[i].value)
         elec_cost.append(model.elec_cost[i].value)
@@ -86,8 +86,6 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         coal_cons.append(model.coal_cons[i].value)
         coal_cost.append(model.coal_cost[i].value)
         
-                
-
         elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
         elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri_direct[i].value)
         elec_cons_AF.append( spec_elec_cons['arc_furnace']*model.liquid_steel[i].value)
@@ -156,15 +154,15 @@ def flexibility_available(model, elec_cons, limits, optimization_horizon) :
 
 #%%
 
-def power_limits(plant_cap, spec_elec_cons, iron_mass_ratio, optimization_horizon, steel_prod):
+def power_limits(plant_cap, spec_elec_cons, iron_mass_ratio, optimization_horizon):
     
-    liquid_steel_max = plant_cap*steel_prod/optimization_horizon
+    liquid_steel_max = plant_cap/optimization_horizon
     liquid_steel_min = .25*liquid_steel_max
     
-    dri_max = liquid_steel_max/iron_mass_ratio['DRI']
-    dri_min = dri_max*.25 #liquid_steel_min/iron_mass_ratio['DRI']
+    dri_max = liquid_steel_max*iron_mass_ratio['DRI']
+    dri_min = dri_max*.25
     
-    iron_ore_max = dri_max/iron_mass_ratio['iron']
+    iron_ore_max = dri_max*iron_mass_ratio['iron']
     iron_ore_min = iron_ore_max*.25
     
     EH_max = spec_elec_cons['electric_heater']*iron_ore_max
@@ -175,8 +173,6 @@ def power_limits(plant_cap, spec_elec_cons, iron_mass_ratio, optimization_horizo
     
     AF_max = spec_elec_cons['arc_furnace']*liquid_steel_max
     AF_min = spec_elec_cons['arc_furnace']*liquid_steel_min
-        
-    
     
     limits = {'max_ls': liquid_steel_max,
               'min_ls': liquid_steel_min,
@@ -184,17 +180,14 @@ def power_limits(plant_cap, spec_elec_cons, iron_mass_ratio, optimization_horizo
               'min_dri': dri_min,
               'max_iron': iron_ore_max,
               'min_iron': iron_ore_min,
-              'EH_max': EH_max ,               #93
-              'EH_min': EH_min,               #23
-              'DRP_max': DRP_max,              #20
-              'DRP_min': DRP_min,               #5
-              'AF_max': AF_max,               #85
-              'AF_min': AF_min,               #21
-              'Total_max': EH_max + DRP_max + AF_max,           #198
-              'Total_min': EH_min + DRP_min + AF_min             #49
-
-              }
-    
+              'EH_max': EH_max ,
+              'EH_min': EH_min,
+              'DRP_max': DRP_max,
+              'DRP_min': DRP_min,
+              'AF_max': AF_max,
+              'AF_min': AF_min,
+              'Total_max': EH_max + DRP_max + AF_max,
+              'Total_min': EH_min + DRP_min + AF_min}
     
     return limits
     
