@@ -34,11 +34,12 @@ def time_series_plot(titles,time,*args):
         for i in range(0,len(args)):           
             ax[i].plot(time, y_values[i]) 
             ax[i].title.set_text(titles[i])
-            ax[i].axvline(x=12, color='r', linestyle=':')
-            #ax[i].axvline(x=3, color='b', linestyle=':')
-            #ax[i].axvline(x=17, color='orange', linestyle=':')
+            ax[i].axvline(x=10, color='r', linestyle=':')
+            ax[i].axvline(x=16, color='b', linestyle=':')
+            ax[i].axvline(x=23, color='orange', linestyle=':')
             #ax[i].axvline(x=16, color='green', linestyle=':')
             #ax[i].axvline(x=20, color='purple', linestyle=':')
+            #ax[i].axvline(x=23, color='teal', linestyle=':')
             
                                
    plt.xticks(time)             
@@ -159,8 +160,14 @@ def flexibility_available(model, elec_cons, limits, optimization_horizon) :
     # potential to increase elec consumption from grid
       neg_flex_total.append(limits['Total_max'] - elec_cons[i-1])
       
-     # potential to reduce elec consumption         
-      pos_flex_total.append(elec_cons[i-1] - limits['Total_min'])
+     # potential to reduce elec consumption   
+# =============================================================================
+#       if elec_cons[i-1] - limits['Total_min'] < 0:
+#           pos_flex_total.append(0)
+#       else:
+# =============================================================================
+      pos_flex_total.append(elec_cons[i-1] - limits['AF_min'])
+                   
                       
     return pos_flex_total, neg_flex_total
 

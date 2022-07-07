@@ -78,7 +78,7 @@ def Price_Opt(input_data,
     #total electricity consumption
     def elec_consumption_rule(model, t):
         return model.elec_cons[t] == spec_elec_cons['electric_heater']*model.iron_ore[t] + \
-            spec_elec_cons['iron_reduction']*(model.dri_direct[t] + model.dri_from_storage[t]) + \
+            spec_elec_cons['iron_reduction']*(model.dri_direct[t] + model.dri_to_storage[t]) + \
             spec_elec_cons['arc_furnace']*model.liquid_steel[t]
 
     #total electricity cost

@@ -21,7 +21,7 @@ input_data2 = pd.read_csv('input/fun_prices.csv', sep = ',', index_col=0)
 
 fuel_data = pd.read_csv('input/Fuel.csv', sep = ',', index_col=0)
 
-price_elec = np.array(input_data2['electricity_price'])  # cents/MWh
+price_elec = np.array(input_data['electricity_price'])  # cents/MWh
 
 
 price_ng = np.array(fuel_data['natural gas'])
@@ -50,7 +50,7 @@ limits = power_limits(plant_cap, spec_elec_cons, iron_mass_ratio, optimization_h
 
 #%%
 # Run model without flexibility 
-base_model = Price_Opt(input_data=input_data2,
+base_model = Price_Opt(input_data=input_data,
                        fuel_data=fuel_data,
                        spec_elec_cons=spec_elec_cons,
                        spec_ng_cons=spec_ng_cons,
@@ -82,7 +82,7 @@ time_series_plot(['elec price'],base_model_params['time_step'],
 time_series_plot(['dri direct', 'dri to storage', 'dri from storage','DRP elec cons', 'AF elec cons'],base_model_params['time_step'], base_model_params['dri_direct'],
                  base_model_params['dri_to_storage'], base_model_params['dri_from_storage'],base_model_params['DRP_elec_cons'], base_model_params['AF_elec_cons'])
 
-
+#%%
 base_case_cons = np.array(base_model_params['elec_cons'])
 base_case_cost = sum(base_case_cons*price_elec[0:optimization_horizon])
 
@@ -91,7 +91,7 @@ base_case_cost = sum(base_case_cons*price_elec[0:optimization_horizon])
 #Flexibility available at each time step - quanity and cost 
 pos_flex_total, neg_flex_total = flexibility_available(base_model, base_model_params['elec_cons'], limits, optimization_horizon) 
     
-time_series_plot(base_model_params['time_step'], base_model_params['elec_cons'], neg_flex_total, pos_flex_total)
+time_series_plot(['total elec consumption', 'Neg Flex', 'Pos Flex', 'drp'],base_model_params['time_step'], base_model_params['elec_cons'], neg_flex_total, pos_flex_total,base_model_params['DRP_elec_cons'])
 
 pos_flex_hourly = np.array(pos_flex_total)
 neg_flex_hourly = np.array(neg_flex_total)
@@ -137,7 +137,12 @@ flex_model_params = get_values(model=flex_model,
                                fuel_data=fuel_data,
                                spec_elec_cons=spec_elec_cons)
 
-time_series_plot(flex_model_params['time_step'], flex_model_params['elec_cons'])
+time_series_plot(['total elec_consumption', 'elec price'],flex_model_params['time_step'], flex_model_params['elec_cons'],price_elec[0:optimization_horizon])
+
+time_series_plot(['EH elec cons', 'DRP elec cons', 'AF elec cons'],flex_model_params['time_step'], flex_model_params['EH_elec_cons'],
+                 flex_model_params['DRP_elec_cons'], flex_model_params['AF_elec_cons'])
+
+
 
 flex_case_cons = np.array(flex_model_params['elec_cons'])
 flex_case_cost = sum(flex_case_cons*price_elec[0:optimization_horizon])
