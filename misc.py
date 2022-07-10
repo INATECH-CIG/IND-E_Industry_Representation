@@ -34,11 +34,11 @@ def time_series_plot(titles,time,*args):
         for i in range(0,len(args)):           
             ax[i].plot(time, y_values[i]) 
             ax[i].title.set_text(titles[i])
-            ax[i].axvline(x=10, color='r', linestyle=':')
-            ax[i].axvline(x=16, color='b', linestyle=':')
-            ax[i].axvline(x=23, color='orange', linestyle=':')
-            #ax[i].axvline(x=16, color='green', linestyle=':')
-            #ax[i].axvline(x=20, color='purple', linestyle=':')
+            ax[i].axvline(x=17, color='r', linestyle=':')
+            #ax[i].axvline(x=12, color='b', linestyle=':')
+            #ax[i].axvline(x=13, color='orange', linestyle=':')
+            #ax[i].axvline(x=15, color='green', linestyle=':')
+            #ax[i].axvline(x=16, color='purple', linestyle=':')
             #ax[i].axvline(x=23, color='teal', linestyle=':')
             
                                

@@ -91,7 +91,7 @@ base_case_cost = sum(base_case_cons*price_elec[0:optimization_horizon])
 #Flexibility available at each time step - quanity and cost 
 pos_flex_total, neg_flex_total = flexibility_available(base_model, base_model_params['elec_cons'], limits, optimization_horizon) 
     
-time_series_plot(['total elec consumption', 'Neg Flex', 'Pos Flex', 'drp'],base_model_params['time_step'], base_model_params['elec_cons'], neg_flex_total, pos_flex_total,base_model_params['DRP_elec_cons'])
+time_series_plot(['total elec consumption', 'Neg Flex', 'Pos Flex'],base_model_params['time_step'], base_model_params['elec_cons'], neg_flex_total, pos_flex_total)
 
 pos_flex_hourly = np.array(pos_flex_total)
 neg_flex_hourly = np.array(neg_flex_total)
@@ -104,8 +104,8 @@ neg_flex_cost_hourly = neg_flex_hourly*price_elec[0:optimization_horizon]
 # %%
 # Run model with flexibility called 
 
-flex_hour = 10
-flex_type = 'pos'
+flex_hour = 21
+flex_type = 'neg'
 
 if flex_type == 'pos':
     flex_amount = pos_flex_hourly[flex_hour]
@@ -118,7 +118,7 @@ flexibility = {'hour_called': flex_hour,
                'cons_signal': cons_signal,
                'type': flex_type}
 
-flex_model = Price_Opt(input_data=input_data,
+flex_model = Price_Opt(input_data=input_data2,
                        fuel_data=fuel_data,
                        spec_elec_cons=spec_elec_cons,
                        spec_ng_cons=spec_ng_cons,
@@ -137,11 +137,6 @@ flex_model_params = get_values(model=flex_model,
                                fuel_data=fuel_data,
                                spec_elec_cons=spec_elec_cons)
 
-time_series_plot(['total elec_consumption', 'elec price'],flex_model_params['time_step'], flex_model_params['elec_cons'],price_elec[0:optimization_horizon])
-
-time_series_plot(['EH elec cons', 'DRP elec cons', 'AF elec cons'],flex_model_params['time_step'], flex_model_params['EH_elec_cons'],
-                 flex_model_params['DRP_elec_cons'], flex_model_params['AF_elec_cons'])
-
 
 
 flex_case_cons = np.array(flex_model_params['elec_cons'])
@@ -150,3 +145,75 @@ flex_case_cost = sum(flex_case_cons*price_elec[0:optimization_horizon])
 cost_flexibility = (flex_case_cost - base_case_cost)/flex_amount
 
 #%%
+time_series_plot(['total elec_consumption', 'elec price'],flex_model_params['time_step'], flex_model_params['elec_cons'],price_elec[0:optimization_horizon])
+
+time_series_plot(['EH elec cons', 'DRP elec cons', 'AF elec cons'],flex_model_params['time_step'], flex_model_params['EH_elec_cons'],
+                 flex_model_params['DRP_elec_cons'], flex_model_params['AF_elec_cons'])
+
+time_series_plot(['dri direct', 'dri to storage', 'dri from storage', 'storage'],flex_model_params['time_step'], flex_model_params['dri_direct'],
+                 flex_model_params['dri_to_storage'], flex_model_params['dri_from_storage'],flex_model_params['storage'])
+
+
+#%%
+
+
+def flex_price(optimization_horizon, flex_type):
+    
+    hourly_cost_flexibility = []
+     
+    for i in range(1, optimization_horizon+1):
+        
+        flex_hour = i
+        print(flex_hour)
+        if flex_type == 'pos':
+            flex_amount = pos_flex_hourly[flex_hour]
+            cons_signal = base_model_params['elec_cons'][flex_hour] - flex_amount
+        else:
+            flex_amount = neg_flex_hourly[flex_hour]
+            cons_signal = base_model_params['elec_cons'][flex_hour] + flex_amount
+        
+        flexibility = {'hour_called': flex_hour,
+                       'cons_signal': cons_signal,
+                       'type': flex_type}
+        
+        flex_model = Price_Opt(input_data=input_data,
+                               fuel_data=fuel_data,
+                               spec_elec_cons=spec_elec_cons,
+                               spec_ng_cons=spec_ng_cons,
+                               spec_coal_cons=spec_coal_cons,
+                               iron_mass_ratio=iron_mass_ratio,
+                               steel_prod=steel_prod,
+                               optimization_horizon=optimization_horizon,
+                               limits=limits,
+                               flexibility_params=flexibility)
+        
+        solved_model = solver.solve(flex_model)
+        
+        flex_model_params = get_values(model=flex_model,
+                                       optimization_horizon=optimization_horizon,
+                                       input_data=input_data,
+                                       fuel_data=fuel_data,
+                                       spec_elec_cons=spec_elec_cons)
+        
+        
+        
+        flex_case_cons = np.array(flex_model_params['elec_cons'])
+        flex_case_cost = sum(flex_case_cons*price_elec[0:optimization_horizon])
+        
+        if flex_case_cost >= base_case_cost:
+            
+            cost_flexibility = (flex_case_cost - base_case_cost)/flex_amount
+        
+        else:
+            flex_case_cost = 0
+        
+               
+        hourly_cost_flexibility.append(cost_flexibility)
+        
+        
+    return cost_flexibility
+        
+
+pos_hourly = flex_price(10, flex_type = 'pos')
+
+
