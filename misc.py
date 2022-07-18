@@ -5,10 +5,11 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
- 
+
+
 #%%    
 
-def time_series_plot(time,*args):
+def time_series_plot(titles,time,*args):
    if len(args) <= 1:
        fig = plt.figure()
        
@@ -19,6 +20,7 @@ def time_series_plot(time,*args):
                  
            plt.plot(data)
            plt.xticks(time)
+           plt.title(titles)
            
             
    else:
@@ -31,11 +33,21 @@ def time_series_plot(time,*args):
                             
         for i in range(0,len(args)):           
             ax[i].plot(time, y_values[i]) 
+            ax[i].title.set_text(titles[i])
+            ax[i].axvline(x=17, color='r', linestyle=':')
+            #ax[i].axvline(x=12, color='b', linestyle=':')
+            #ax[i].axvline(x=13, color='orange', linestyle=':')
+            #ax[i].axvline(x=15, color='green', linestyle=':')
+            #ax[i].axvline(x=16, color='purple', linestyle=':')
+            #ax[i].axvline(x=23, color='teal', linestyle=':')
+            
                                
    plt.xticks(time)             
    plt.xlabel('Time[h]')    
+   
                                         
    return fig
+
 
 
 #%%
@@ -87,7 +99,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         coal_cost.append(model.coal_cost[i].value)
         
         elec_cons_EH.append(spec_elec_cons['electric_heater']*model.iron_ore[i].value)
-        elec_cons_DRP.append(spec_elec_cons['iron_reduction']*model.dri_direct[i].value)
+        elec_cons_DRP.append(spec_elec_cons['iron_reduction']*(model.dri_direct[i].value + model.dri_to_storage[i].value))
         elec_cons_AF.append( spec_elec_cons['arc_furnace']*model.liquid_steel[i].value)
         storage_status.append(model.storage_status[i].value)
         storage.append(model.storage[i].value)
@@ -108,6 +120,7 @@ def get_values(model,optimization_horizon, input_data, fuel_data, spec_elec_cons
         model_params['iron_ore'] = iron_ore
         model_params['dri_direct'] = dri_direct
         model_params['dri_to_storage'] = dri_to_storage
+        model_params['dri_from_storage'] = dri_from_storage
         model_params['liquid_steel'] =liquid_steel
         model_params['elec_cons'] =elec_cons
         model_params['ng_cons'] = ng_cons
@@ -147,8 +160,14 @@ def flexibility_available(model, elec_cons, limits, optimization_horizon) :
     # potential to increase elec consumption from grid
       neg_flex_total.append(limits['Total_max'] - elec_cons[i-1])
       
-     # potential to reduce elec consumption         
-      pos_flex_total.append(elec_cons[i-1] - limits['Total_min'])
+     # potential to reduce elec consumption   
+# =============================================================================
+#       if elec_cons[i-1] - limits['Total_min'] < 0:
+#           pos_flex_total.append(0)
+#       else:
+# =============================================================================
+      pos_flex_total.append(elec_cons[i-1] - limits['AF_min'])
+                   
                       
     return pos_flex_total, neg_flex_total
 
