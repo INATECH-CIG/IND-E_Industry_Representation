@@ -92,46 +92,55 @@ neg_flex_cost_hourly = neg_flex_hourly*price_elec[0:optimization_horizon]
 
 
 # %%
-# Run model with flexibility called 
+# Run model with flexibility called
 
-flex_hour = 10
-flex_type = 'pos'
+def calc_flexibility_costs(flex_type='pos'):
+    flex_cost = []
+    for flex_hour in range(1,24):
+        if flex_type == 'pos':
+            flex_amount = pos_flex_hourly[flex_hour]
+            cons_signal = base_model_params['elec_cons'][flex_hour] - flex_amount
+        else:
+            flex_amount = neg_flex_hourly[flex_hour]
+            cons_signal = base_model_params['elec_cons'][flex_hour] + flex_amount
 
-if flex_type == 'pos':
-    flex_amount = pos_flex_hourly[flex_hour]
-    cons_signal = base_model_params['elec_cons'][flex_hour] - flex_amount
-else:
-    flex_amount = neg_flex_hourly[flex_hour]
-    cons_signal = base_model_params['elec_cons'][flex_hour] + flex_amount
+        if flex_amount == 0:
+            flex_cost.append(0)
+            continue
 
-flexibility = {'hour_called': flex_hour,
-               'cons_signal': cons_signal,
-               'type': flex_type}
+        flexibility = {'hour_called': flex_hour,
+                    'cons_signal': cons_signal,
+                    'type': flex_type}
 
-flex_model = Price_Opt(input_data=input_data,
-                       fuel_data=fuel_data,
-                       spec_elec_cons=spec_elec_cons,
-                       spec_ng_cons=spec_ng_cons,
-                       spec_coal_cons=spec_coal_cons,
-                       iron_mass_ratio=iron_mass_ratio,
-                       steel_prod=steel_prod,
-                       optimization_horizon=optimization_horizon,
-                       limits=limits,
-                       flexibility_params=flexibility)
+        flex_model = Price_Opt(input_data=input_data,
+                            fuel_data=fuel_data,
+                            spec_elec_cons=spec_elec_cons,
+                            spec_ng_cons=spec_ng_cons,
+                            spec_coal_cons=spec_coal_cons,
+                            iron_mass_ratio=iron_mass_ratio,
+                            steel_prod=steel_prod,
+                            optimization_horizon=optimization_horizon,
+                            limits=limits,
+                            flexibility_params=flexibility)
 
-solved_model = solver.solve(flex_model)
+        solved_model = solver.solve(flex_model)
 
-flex_model_params = get_values(model=flex_model,
-                               optimization_horizon=optimization_horizon,
-                               input_data=input_data,
-                               fuel_data=fuel_data,
-                               spec_elec_cons=spec_elec_cons)
+        flex_model_params = get_values(model=flex_model,
+                                    optimization_horizon=optimization_horizon,
+                                    input_data=input_data,
+                                    fuel_data=fuel_data,
+                                    spec_elec_cons=spec_elec_cons)
 
-time_series_plot(flex_model_params['time_step'], flex_model_params['elec_cons'])
+        #time_series_plot(flex_model_params['time_step'], flex_model_params['elec_cons'])
 
-flex_case_cons = np.array(flex_model_params['elec_cons'])
-flex_case_cost = sum(flex_case_cons*price_elec[0:optimization_horizon])
+        flex_case_cons = np.array(flex_model_params['elec_cons'])
+        flex_case_cost = sum(flex_case_cons*price_elec[0:optimization_horizon])
 
-cost_flexibility = (flex_case_cost - base_case_cost)/flex_amount
+        cost_flexibility = (flex_case_cost - base_case_cost)/flex_amount
+        flex_cost.append(cost_flexibility)
+    return flex_cost
 
 #%%
+flex_cost_pos=calc_flexibility_costs(flex_type='pos')
+flex_cost_neg=calc_flexibility_costs(type='neg')
+# %%
