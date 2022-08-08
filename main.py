@@ -8,6 +8,7 @@ Created on Thu May 19 14:48:30 2022
 import os as os
 import pandas as pd
 import pyomo.environ as pyo
+from pyomo.opt import SolverStatus, TerminationCondition
 from misc import time_series_plot, get_values, flexibility_available, power_limits
 from optimization import Price_Opt
 import numpy as np
@@ -135,6 +136,15 @@ def calc_flexibility_costs(flex_type='pos'):
 
         solved_model = solver.solve(flex_model)
 
+        if (solved_model.solver.termination_condition == TerminationCondition.infeasible):
+            if flex_type == 'pos':
+                pos_flex_hourly[flex_hour] = 0
+            else:
+                neg_flex_hourly[flex_hour] = 0
+            
+            flex_cost.append(0)
+            continue
+
         flex_model_params = get_values(model=flex_model,
                                     optimization_horizon=optimization_horizon,
                                     input_data=input_data,
@@ -152,5 +162,5 @@ def calc_flexibility_costs(flex_type='pos'):
 
 #%%
 flex_cost_pos=calc_flexibility_costs(flex_type='pos')
-flex_cost_neg=calc_flexibility_costs(type='neg')
+flex_cost_neg=calc_flexibility_costs(flex_type='neg')
 # %%
