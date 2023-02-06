@@ -1,0 +1,11 @@
+Fuel_Type,Fuel_Price,Emission_Factor,Variable_Cost,Color
+Nuclear,2.7,0,1.5,maroon
+Lignite,6.33,0.36,1.3,darkorange
+Hard coal,8.63,0.34,1.6,papayawhip
+Natural gas,12,0.2,3.5,mediumseagreen
+Oil,35.68,0.78,0.8,gray
+Bioenergy,20.1,0,0.8,green
+Hydro,0,0,3.2,blue
+co2,21,0,0,black
+Waste,32,0.35,0.4,brown
+Renewable Energy,0,0,0,blue

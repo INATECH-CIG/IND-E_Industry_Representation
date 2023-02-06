@@ -1,0 +1,667 @@
+ID,Name,Node,Latitude,Longitude,Fuel,Capacity,Efficiency
+BNA0005,Ahrensfelde,DE_BE,52.59,13.56,Natural gas,37.5,0.354
+BNA0006,Ahrensfelde,DE_BE,52.59,13.56,Natural gas,37.5,0.354
+BNA0007,Ahrensfelde,DE_BE,52.59,13.56,Natural gas,37.5,0.354
+BNA0008,Ahrensfelde,DE_BE,52.59,13.56,Natural gas,37.5,0.354
+BNA0012b,Werkskraftwerk Sappi Alfeld,DE_NI,51.99,9.82,Natural gas,20,0.327
+BNA0015,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Natural gas,65,0.372
+BNA0016,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Natural gas,50,0.305
+BNA0017,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Natural gas,57,0.31
+BNA0018,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Natural gas,81,0.315
+BNA0019,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Hard coal,336,0.44
+BNA0020,Heizkraftwerk Altbach/Deizisau,DE_BW,48.72,9.37,Hard coal,433,0.455
+BNA0025,Kesselhaus Zuckerfabrik,DE_MV,53.86,13.71,Natural gas,15.1,0.377
+BNA0033,Gasturbine,DE_BY,48.4,10.94,Natural gas,28.8,0.39
+BNA0051,KWK-Anlage Barby,DE_ST,51.98,11.88,Natural gas,18,0.377
+BNA0059b,GuD Baunatal,DE_HE,51.25,9.44,Natural gas,78,0.599
+BNA0067,Bergkamen,DE_NRW,51.64,7.62,Hard coal,717,0.378
+BNA0070,HKW Adlershof,DE_BE,52.43,13.56,Natural gas,8,0.406
+BNA0071,HKW Adlershof,DE_BE,52.43,13.56,Natural gas,5,0.37
+BNA0072,HKW Adlershof,DE_BE,52.43,13.56,Natural gas,7,0.385
+BNA0073,Mitte,DE_BE,52.51,13.42,Natural gas,444,0.522
+BNA0074,Charlottenburg,DE_BE,52.52,13.31,Natural gas,211,0.38
+BNA0075,Lichterfelde,DE_BE,52.43,13.31,Natural gas,144,0.383
+BNA0076,Lichterfelde,DE_BE,52.43,13.31,Natural gas,144,0.383
+BNA0080,Lichterfelde,DE_BE,52.43,13.31,Natural gas,144,0.383
+BNA0081,Klingenberg,DE_BE,52.49,13.5,Lignite,164,0.357
+BNA0082,Reuter,DE_BE,52.53,13.25,Hard coal,124,0.348
+BNA0083,Wilmersdorf,DE_BE,52.48,13.31,Oil,276,0.36
+BNA0084,Reuter,DE_BE,52.53,13.25,Waste,36,0.33
+BNA0085a,Moabit,DE_BE,52.54,13.35,Hard coal,89,0.4
+BNA0085b,Moabit,DE_BE,52.54,13.35,Oil,51,0.305
+BNA0086,Reuter West,DE_BE,52.54,13.24,Hard coal,282,0.393
+BNA0087,Reuter West,DE_BE,52.54,13.24,Hard coal,282,0.395
+BNA0088a,Industriekraftwerk Bernburg (IKB),DE_ST,51.8,11.75,Natural gas,35,0.33
+BNA0088b,Dampfturbinenanlage der EBS-Kessel,DE_ST,51.8,11.75,Waste,66,0.513
+BNA0093,Kraftwerk Bexbach,DE_SL,49.36,7.24,Hard coal,721,0.383
+BNA0097,MVA Bielefeld,DE_NRW,52.04,8.61,Waste,34,0.33
+BNA0098,HKW Schildescher Straße,DE_NRW,52.03,8.54,Natural gas,23,0.361
+BNA0099,Gasturbinenkraftwerk Bielefeld Ummeln,DE_NRW,51.98,8.45,Natural gas,55,0.315
+BNA0100,GuD Kraftwerk Hillegossen,DE_NRW,52.03,8.54,Natural gas,37.5,0.563
+BNA0101,HKW Schildescher Straße,DE_NRW,52.03,8.54,Natural gas,41,0.348
+BNA0105,GuD Bitterfeld,DE_ST,51.63,12.3,Natural gas,106,0.54
+BNA0110,Bochum,DE_NRW,51.48,7.22,Natural gas,20.7,0.389
+BNA0111,HKW Hiltrop,DE_NRW,51.51,7.25,Natural gas,44,0.4
+BNA0115,Lippendorf,DE_SN,51.18,12.37,Lignite,875,0.4
+BNA0116,Braunkohlekraftwerk Lippendorf,DE_SN,51.18,12.37,Lignite,875,0.398
+BNA0117a,Heizkraftwerk Karlstraße,DE_NRW,50.73,7.08,Waste,12,0.33
+BNA0117b,Heizkraftwerk Karlstraße,DE_NRW,50.73,7.08,Natural gas,95,0.399
+BNA0122,Boxberg,DE_SN,51.42,14.56,Lignite,465,0.383
+BNA0123,Boxberg,DE_SN,51.42,14.56,Lignite,465,0.386
+BNA0124,Boxberg,DE_SN,51.42,14.56,Lignite,857,0.4
+BNA0129,HKW,DE_BB,51.51,13.97,Natural gas,36,0.382
+BNA0130,Kirchmöser,DE_BB,52.39,12.42,Natural gas,160,0.513
+BNA0135,HKW-Mitte,DE_NI,52.28,10.51,Natural gas,20,0.41
+BNA0136,HKW-Mitte,DE_NI,52.28,10.51,Natural gas,74,0.585
+BNA0137,HKW-Nord,DE_NI,52.28,10.51,Natural gas,25,0.289
+BNA0138,HKW-Mitte,DE_NI,52.28,10.51,Hard coal,43.3,0.468
+BNA0139,KW Hafen,DE_NI,53.12,8.73,Waste,33,0.33
+BNA0141,KW Mittelsbüren,DE_NI,53.13,8.69,Oil,88,0.312
+BNA0144,KW Hastedt,DE_HB,53.06,8.87,Hard coal,119,0.398
+BNA0146,KW Hafen,DE_NI,53.12,8.73,Hard coal,300,0.373
+BNA0147,Farge,DE_NI,53.2,8.52,Hard coal,350,0.443
+BNA0156b,Egger Kraftwerk Briilon,DE_NRW,51.41,8.6,Natural gas,13.5,0.37
+BNA0157,Brokdorf,DE_SH,53.85,9.35,Nuclear,1410,0.33
+BNA0161,Brunsbüttel,DE_SH,53.89,9.2,Oil,63.5,0.31
+BNA0162,Brunsbüttel,DE_SH,53.89,9.2,Oil,63.5,0.31
+BNA0163,Brunsbüttel,DE_SH,53.89,9.2,Oil,63.5,0.31
+BNA0164,Brunsbüttel,DE_SH,53.89,9.2,Oil,63.5,0.31
+BNA0174,Industriepark Werk Gendorf,DE_BY,48.18,12.73,Natural gas,49,0.387
+BNA0177,HKW Chemnitz  Nord II,DE_SN,50.86,12.92,Lignite,56.8,0.371
+BNA0178,HKW Chemnitz  Nord II,DE_SN,50.86,12.92,Natural gas,57.2,0.37
+BNA0179,HKW Chemnitz  Nord II,DE_SN,50.86,12.92,Lignite,90.8,0.424
+BNA0183,HKW Cottbus,DE_BB,51.76,14.37,Lignite,74,0.398
+BNA0194,Kraftwerk Dessau,DE_ST,51.83,12.23,Lignite,49,0.39
+BNA0196,Deuben,DE_SN,51.11,12.08,Lignite,67,0.246
+BNA0199,Dormagen,DE_NRW,51.08,6.83,Natural gas,586.3,0.54
+BNA0202,Dortmund,DE_NRW,51.52,7.48,Natural gas,26,0.389
+BNA0203,Knepper,DE_NRW,51.57,7.35,Hard coal,345,0.353
+BNA0207,HKW Dresden-Nossener Brücke,DE_SN,51.04,13.71,Natural gas,263,0.518
+BNA0211,HKW I,DE_NRW,51.43,6.75,Hard coal,95,0.388
+BNA0213,HKW III/A,DE_NRW,51.39,6.75,Natural gas,40,0.387
+BNA0214,HKW III/B,DE_NRW,51.39,6.75,Natural gas,234,0.563
+BNA0216a,KW Walsum,DE_NRW,51.53,6.72,Hard coal,370,0.395
+BNA0216b,KW Walsum,DE_NRW,51.53,6.72,Hard coal,725,0.458
+BNA0220,GuD,DE_NRW,51.22,6.73,Natural gas,100,0.54
+BNA0221a,GT,DE_NRW,51.22,6.73,Natural gas,64.7,0.312
+BNA0221b,GT,DE_NRW,51.22,6.73,Natural gas,66.7,0.312
+BNA0221c,Gasblock,DE_NRW,51.22,6.73,Natural gas,293,0.359
+BNA0222,GT,DE_NRW,51.22,6.81,Oil,86.2,0.32
+BNA0223b,DT,DE_NRW,51.22,6.81,Waste,53.7,0.33
+BNA0232c,Werkskraftwerk Sappi Ehingen,DE_BW,48.27,9.73,Natural gas,4,0.359
+BNA0233,Kombikraftwerk,DE_SN,51.47,12.59,Natural gas,46.6,0.377
+BNA0239,Huntorf,DE_NI,53.19,8.41,Natural gas,321,0.396
+BNA0243,HKW Eltmann,DE_BY,49.98,10.65,Natural gas,57,0.394
+BNA0245a,Emden Gas,DE_NI,53.34,7.21,Natural gas,50,0.355
+BNA0251,Grohnde,DE_NI,52.04,9.41,Nuclear,1360,0.33
+BNA0252,Kraftwerk Ensdorf,DE_SL,49.29,6.77,Hard coal,283,0.43
+BNA0253,Kraftwerk Ensdorf,DE_SL,49.29,6.77,Hard coal,106,0.43
+BNA0255,HKW Iderhoffstraße,DE_TH,50.98,11.05,Natural gas,11,0.381
+BNA0256a,HKW Erfurt-Ost,DE_TH,50.99,11.03,Natural gas,76.5,0.54
+BNA0256b,HKW Erfurt-Ost,DE_TH,50.99,11.03,Natural gas,32.6,0.603
+BNA0261a,HKW Erlangen,DE_BY,49.59,11,Natural gas,21.6,0.563
+BNA0261b,HKW Erlangen,DE_BY,49.59,11,Hard coal,17.4,0.375
+BNA0261c,HKW Erlangen,DE_BY,49.59,11,Natural gas,6.7,0.603
+BNA0263,Isar 2,DE_BY,48.6,12.3,Nuclear,1410,0.33
+BNA0270,Heizkraftwerk FL,DE_SH,54.8,9.43,Hard coal,27,0.405
+BNA0271,Heizkraftwerk FL,DE_SH,54.8,9.43,Hard coal,29,0.395
+BNA0272,Heizkraftwerk FL,DE_SH,54.8,9.43,Hard coal,33,0.388
+BNA0273,Heizkraftwerk FL,DE_SH,54.8,9.43,Hard coal,35,0.38
+BNA0274,Heizkraftwerk FL,DE_SH,54.8,9.43,Hard coal,23,0.37
+BNA0284,Heizkraftwerk FFO,DE_BB,52.35,14.55,Lignite,45,0.393
+BNA0285,HKW Niederrad,DE_HE,50.09,8.63,Natural gas,70,0.563
+BNA0286,HKW West,DE_HE,50.1,8.65,Natural gas,99,0.364
+BNA0287a,MHKW Frankfurt,DE_HE,50.16,8.64,Waste,26,0.33
+BNA0287b,MHKW Frankfurt,DE_HE,50.16,8.64,Waste,46.5,0.33
+BNA0288,HKW Niederrad,DE_HE,50.09,8.63,Natural gas,56,0.419
+BNA0289b,HKW West,DE_HE,50.1,8.65,Hard coal,61.5,0.398
+BNA0290,HKW West,DE_HE,50.1,8.65,Hard coal,61.5,0.398
+BNA0292,Frechen/Wachtberg,DE_NRW,50.9,6.79,Lignite,118,0.371
+BNA0293,GuD Anlage WVK,DE_BW,48.02,7.85,Natural gas,60.1,0.531
+BNA0313,Frimmersdorf,DE_NRW,51.06,6.58,Lignite,284,0.376
+BNA0314,Frimmersdorf,DE_NRW,51.06,6.58,Lignite,278,0.376
+BNA0318,Kraftwerk Fulda,DE_HE,50.57,9.69,Oil,24.8,0.397
+BNA0331,Scholven,DE_NRW,51.6,7.01,Hard coal,345,0.348
+BNA0332,Scholven,DE_NRW,51.6,7.01,Hard coal,345,0.345
+BNA0336,FWK Buer,DE_NRW,51.6,7,Hard coal,70,0.388
+BNA0343,Heizkraftwerk Gera-Nord,DE_TH,50.91,12.06,Natural gas,74,0.381
+BNA0354,HKW Göttingen,DE_NI,51.55,9.93,Natural gas,18.8,0.383
+BNA0355,Grafenrheinfeld,DE_BY,49.98,10.18,Nuclear,1275,0.33
+BNA0360,"HKW ""Helmshäger Berg""",DE_MV,54.07,13.4,Natural gas,14.7,0.37
+BNA0361,Kraftwerk Grenzach-Wyhlen,DE_BW,47.54,7.71,Natural gas,40,0.389
+BNA0369,Spitzenlastkraftwerk Sermuth,DE_SN,51.16,12.78,Oil,17,0.38
+BNA0373,Spitzenlastkraftwerk Großkayna,DE_ST,51.29,11.95,Oil,120,0.364
+BNA0374,Staudinger,DE_HE,50.09,8.95,Natural gas,622,0.36
+BNA0377,Staudinger,DE_HE,50.09,8.95,Hard coal,510,0.405
+BNA0378,Ingolstadt,DE_BY,48.76,11.5,Oil,386,0.355
+BNA0379,Ingolstadt,DE_BY,48.76,11.5,Oil,386,0.356
+BNA0380,EEW Großräschen,DE_BB,51.59,14.02,Waste,23.3,0.33
+BNA0381,Kernkraft Gundremmingen ,DE_BY,48.52,10.4,Nuclear,1284,0.33
+BNA0382,Kernkraft Gundremmingen ,DE_BY,48.52,10.4,Nuclear,1288,0.33
+BNA0386,Energiezentrum Mohn Media,DE_NRW,51.91,8.41,Natural gas,22,0.378
+BNA0389,Heizkraftwerk Hagen-Kabel,DE_NRW,51.41,7.49,Natural gas,230,0.558
+BNA0392a,HKW Halle Trotha,DE_ST,51.48,11.96,Natural gas,97,0.391
+BNA0392b,HKW Halle Trotha,DE_ST,51.52,11.94,Natural gas,54,0.599
+BNA0398,MVR Müllverwertung Rugenberger Damm GmbH & Co. KG,DE_HH,53.52,9.93,Waste,24,0.33
+BNA0400,GuD Tiefstack,DE_HH,53.53,10.07,Natural gas,127,0.581
+BNA0401,Heizkraftwerk,DE_HH,53.52,9.95,Natural gas,22.5,0.376
+BNA0402,Tiefstack,DE_HH,53.53,10.06,Hard coal,194,0.408
+BNA0403,Wedel,DE_SH,53.57,9.72,Hard coal,123,0.408
+BNA0404,Wedel,DE_SH,53.57,9.72,Hard coal,137,0.408
+BNA0407,Enertec Hameln,DE_NI,52.1,9.39,Waste,14.7,0.33
+BNA0410,Trianel Gaskraftwerk ,DE_NRW,51.67,7.93,Natural gas,417.1,0.576
+BNA0411,Trianel Gaskraftwerk ,DE_NRW,51.67,7.93,Natural gas,420.9,0.576
+BNA0413a,Westfalen,DE_NRW,51.68,7.97,Hard coal,284,0.348
+BNA0413c,Westfalen,DE_NRW,51.68,7.97,Hard coal,765,0.46
+BNA0417,EEW Energy from Waste Hannover GmbH,DE_NI,52.41,9.85,Waste,22.5,0.33
+BNA0418,GKL,DE_NI,52.37,9.71,Natural gas,230,0.599
+BNA0419,KWH,DE_NI,52.42,9.65,Natural gas,102,0.358
+BNA0420,GKH,DE_NI,52.42,9.65,Hard coal,136,0.398
+BNA0421,GKH,DE_NI,52.42,9.65,Hard coal,136,0.398
+BNA0427,Kraftwerk Hausham,DE_BY,47.75,11.84,Oil,23.2,0.333
+BNA0428,Kraftwerk Hausham,DE_BY,47.75,11.84,Oil,23.2,0.333
+BNA0429,Kraftwerk Hausham,DE_BY,47.75,11.84,Oil,23.2,0.333
+BNA0430,Kraftwerk Hausham,DE_BY,47.75,11.84,Oil,23.2,0.333
+BNA0432,Heizkraftwerk Heilbronn,DE_BW,49.18,9.21,Hard coal,125,0.45
+BNA0433,Heizkraftwerk Heilbronn,DE_BW,49.18,9.21,Hard coal,125,0.45
+BNA0434,Heizkraftwerk Heilbronn,DE_BW,49.18,9.21,Hard coal,778,0.448
+BNA0438,TRV Buschhaus,DE_NI,52.17,10.98,Waste,37.5,0.33
+BNA0439,Buschhaus,DE_NI,52.17,10.98,Lignite,352,0.364
+BNA0442,Cuno Heizkraftwerk Herdecke,DE_NRW,51.4,7.42,Natural gas,417,0.572
+BNA0444,Wintershall,DE_HE,50.89,10,Natural gas,109.5,0.392
+BNA0449,KW Herne,DE_NRW,51.55,7.19,Hard coal,280,0.398
+BNA0450,KW Herne,DE_NRW,51.55,7.19,Hard coal,449,0.458
+BNA0464,KWM,DE_NI,52.32,10.09,Hard coal,690,0.433
+BNA0490a,Goldenberg,DE_NRW,50.86,6.84,Lignite,40,0.383
+BNA0490b,Goldenberg,DE_NRW,50.86,6.84,Lignite,45,0.383
+BNA0491,Ville/Berrenrath,DE_NRW,50.86,6.84,Lignite,52,0.378
+BNA0493,Ibbenbüren,DE_NRW,52.29,7.75,Hard coal,794,0.448
+BNA0497,ADS-Anlage,DE_HE,50.09,8.53,Natural gas,96.5,0.411
+BNA0498,Heizkraftwerk,DE_HE,50.09,8.53,Hard coal,66,0.491
+BNA0499,Heizkraftwerk,DE_HE,50.09,8.53,Natural gas,86,0.554
+BNA0504,HKW Jena,DE_TH,50.9,11.59,Natural gas,182,0.522
+BNA0510a,HKW Karcherstr.,DE_RP,49.43,7.76,Natural gas,11.6,0.373
+BNA0510b,HKW Karcherstr.,DE_RP,49.43,7.76,Hard coal,13.4,0.415
+BNA0514,Rheinhafen-Dampfkraftwerk,DE_BW,49.01,8.3,Natural gas,353,0.531
+BNA0515,Heizkraftwerk West,DE_BW,49.01,8.35,Natural gas,37,0.367
+BNA0516,MiRO,DE_BW,49.06,8.32,Oil,45,0.38
+BNA0517,MiRO,DE_BW,49.06,8.32,Oil,25,0.38
+BNA0518a,Rheinhafen-Dampfkraftwerk,DE_BW,49.01,8.3,Hard coal,505,0.438
+BNA0518b,Rheinhafen-Dampfkraftwerk,DE_BW,49.01,8.3,Hard coal,842,0.46
+BNA0519,Karnap,DE_NRW,51.52,6.99,Waste,38,0.33
+BNA0521,Kombi-HKW,DE_HE,51.28,9.48,Natural gas,50,0.371
+BNA0523,FKK,DE_HE,51.28,9.48,Lignite,33.5,0.371
+BNA0526,Gemeinschaftskraftwerk Kiel,DE_SH,54.34,10.18,Hard coal,323,0.405
+BNA0527,HKW Humboldtstr.,DE_SH,54.33,10.13,Natural gas,31,0.352
+BNA0531,KW Kirchlengern,DE_NRW,52.2,8.65,Natural gas,201.5,0.45
+BNA0543,HKW Merkenich,DE_NRW,51.02,6.96,Lignite,75.3,0.424
+BNA0544,HKW Südstadt,DE_NRW,50.92,6.96,Natural gas,35,0.513
+BNA0545,HKW Niehl 2,DE_NRW,50.97,6.99,Natural gas,413,0.576
+BNA0546,HKW Merkenich,DE_NRW,51.02,6.96,Natural gas,108,0.558
+BNA0547,Raffineriekraftwerk Köln Godorf,DE_NRW,50.85,6.98,Oil,80,0.38
+BNA0548a,Knapsack Gas I,DE_NRW,50.86,6.84,Natural gas,800,0.567
+BNA0548b,Knapsack Gas II,DE_NRW,50.86,6.84,Natural gas,430,0.599
+BNA0556a,KWK-Anlage Krefeld DT,DE_NRW,51.34,6.66,Natural gas,25.8,0.389
+BNA0556b,KWK-Anlage Krefeld VM,DE_NRW,51.34,6.66,Natural gas,14,0.448
+BNA0557a,Kraftwerk L 57,DE_NRW,51.37,6.66,Hard coal,26,0.318
+BNA0557b,Kraftwerk N 230,DE_NRW,51.37,6.66,Hard coal,110,0.353
+BNA0574a,Landesbergen Gas,DE_NI,52.55,9.11,Natural gas,56,0.355
+BNA0588,Heizkraftwerk Leipzig-Nord,DE_SN,51.35,12.38,Natural gas,167,0.585
+BNA0590,TREA Leuna,DE_ST,51.3,12.02,Waste,16.3,0.33
+BNA0591,TREA Leuna,DE_ST,51.3,12.02,Waste,16.3,0.33
+BNA0592,GuD Leuna,DE_ST,51.3,12.02,Natural gas,52,0.531
+BNA0593,ILK-GuD,DE_ST,51.3,12.02,Natural gas,35,0.513
+BNA0594,ILK-GuD,DE_ST,51.3,12.02,Natural gas,35,0.513
+BNA0595,ILK-GuD,DE_ST,51.3,12.02,Natural gas,37,0.513
+BNA0596,Raffineriekraftwerk,DE_ST,51.3,12.02,Oil,92.5,0.38
+BNA0599,MHKW Leverkusen,DE_NRW,51.05,7,Waste,6,0.33
+BNA0600a,X-Kraftwerk,DE_NRW,51.01,6.99,Natural gas,27,0.364
+BNA0600b,G-Kraftwerk,DE_NRW,51.37,6.65,Hard coal,103,0.33
+BNA0602,Emsland,DE_NI,52.48,7.31,Natural gas,116,0.59
+BNA0603,Emsland,DE_NI,52.48,7.31,Natural gas,116,0.59
+BNA0604,Emsland,DE_NI,52.48,7.31,Natural gas,359,0.419
+BNA0605,Emsland,DE_NI,52.48,7.31,Natural gas,359,0.423
+BNA0606,Emsland,DE_NI,52.48,7.31,Natural gas,887,0.585
+BNA0607,Kernkraftwerk Emsland,DE_NI,52.48,7.31,Nuclear,1336,0.33
+BNA0614a,KW Mitte,DE_RP,49.51,8.43,Natural gas,43,0.359
+BNA0614b,Kraftwerk Mitte,DE_RP,49.51,8.43,Natural gas,490,0.563
+BNA0615,Kraftwerk Süd,DE_RP,49.51,8.43,Natural gas,390,0.527
+BNA0616a,Kläranlage,DE_BW,48.55,8.41,Waste,12,0.33
+BNA0618,KW Lünen,DE_NRW,51.61,7.48,Hard coal,149,0.415
+BNA0619,KW Lünen,DE_NRW,51.61,7.48,Hard coal,324,0.418
+BNA0622,MHKW Rothensee,DE_ST,52.19,11.68,Waste,29.2,0.33
+BNA0623,MHKW Rothensee,DE_ST,52.19,11.68,Waste,29.2,0.33
+BNA0626,Kraftwerk Mainz,DE_RP,50.03,8.24,Natural gas,434.2,0.545
+BNA0627,Kraftwerk Mainz,DE_RP,50.03,8.24,Natural gas,335,0.437
+BNA0640,HKW Mannheim,DE_RP,49.52,8.45,Waste,8.7,0.33
+BNA0641a,HKW Mannheim,DE_RP,49.52,8.45,Waste,22.1,0.33
+BNA0641b,HKW Mannheim,DE_RP,49.52,8.45,Waste,8.1,0.33
+BNA0641c,HKW Mannheim,DE_RP,49.52,8.45,Waste,5.8,0.33
+BNA0643,GKM ,DE_RP,49.45,8.49,Hard coal,202.5,0.35
+BNA0644,GKM ,DE_RP,49.45,8.49,Hard coal,255,0.438
+BNA0645,GKM ,DE_RP,49.45,8.49,Hard coal,425,0.38
+BNA0646a,GKM ,DE_RP,49.45,8.49,Hard coal,435,0.408
+BNA0646b,GKM ,DE_RP,49.45,8.49,Hard coal,843,0.463
+BNA0647,Dampfkraftwerk Marbach am Neckar,DE_BW,48.93,9.23,Oil,77.4,0.305
+BNA0648,Dampfkraftwerk Marbach am Neckar,DE_BW,48.93,9.23,Oil,85,0.38
+BNA0649,Dampfkraftwerk Marbach am Neckar,DE_BW,48.93,9.23,Oil,262,0.38
+BNA0658,Kraftwerk III,DE_NRW,51.68,7.1,Natural gas,61.1,0.554
+BNA0659,Kraftwerk III,DE_NRW,51.68,7.1,Natural gas,77.6,0.554
+BNA0660,Kraftwerk I  ,DE_NRW,51.68,7.1,Hard coal,55.3,0.353
+BNA0661,Kraftwerk II,DE_NRW,51.68,7.1,Hard coal,60.4,0.34
+BNA0662a,Kraftwerk I ,DE_NRW,51.68,7.1,Hard coal,60.2,0.383
+BNA0662b,Kraftwerk I,DE_NRW,51.68,7.1,Hard coal,120,0.273
+BNA0680,Mumsdorf,DE_SN,51.07,12.26,Lignite,60,0.323
+BNA0681,Freimann GT 1,DE_BY,48.19,11.59,Natural gas,78.6,0.315
+BNA0682,Freimann GT 2,DE_BY,48.19,11.59,Natural gas,78.6,0.315
+BNA0683a,Süd DT1,DE_BY,48.14,11.58,Natural gas,79.7,0.45
+BNA0683b,Süd GT3,DE_BY,48.14,11.58,Natural gas,97.9,0.45
+BNA0683c,Süd GT2,DE_BY,48.14,11.58,Natural gas,97.9,0.45
+BNA0684a,Süd GT 61,DE_BY,48.14,11.58,Natural gas,124.9,0.558
+BNA0684b,Süd GT 62,DE_BY,48.14,11.58,Natural gas,123.9,0.558
+BNA0684c,Süd DT60,DE_BY,48.14,11.58,Natural gas,127.6,0.558
+BNA0685,Heizkraftwerk Hafen,DE_NRW,51.95,7.64,Natural gas,100.2,0.563
+BNA0686,Gemeinschaftskernkraftwerk Neckarwestheim II,DE_BW,49.04,9.18,Nuclear,1310,0.33
+BNA0688,GuD-HKW Neubrandenburg,DE_MV,53.57,13.3,Natural gas,75,0.527
+BNA0696,Neurath,DE_NRW,51.04,6.62,Lignite,277,0.333
+BNA0697,Neurath,DE_NRW,51.04,6.62,Lignite,288,0.333
+BNA0698,Neurath,DE_NRW,51.04,6.62,Lignite,292,0.335
+BNA0699,Neurath,DE_NRW,51.04,6.62,Lignite,607,0.34
+BNA0700,Neurath,DE_NRW,51.04,6.62,Lignite,604,0.342
+BNA0702,Cogeneration,DE_BY,48.79,11.76,Natural gas,25.4,0.381
+BNA0705,Niederaußem,DE_NRW,51,6.67,Lignite,297,0.323
+BNA0706,Niederaußem,DE_NRW,51,6.67,Lignite,299,0.33
+BNA0707,Niederaußem,DE_NRW,51,6.67,Lignite,648,0.422
+BNA0708,Niederaußem,DE_NRW,51,6.67,Lignite,653,0.419
+BNA0709,Niederaußem,DE_NRW,51,6.67,Lignite,944,0.405
+BNA0712,Niederaußem,DE_NRW,51,6.67,Lignite,294,0.316
+BNA0713,Niederaußem,DE_NRW,51,6.67,Lignite,295,0.328
+BNA0714,Fortuna Nord,DE_NRW,50.95,6.66,Lignite,15,0.362
+BNA0734,Thyrow,DE_BB,52.23,13.3,Natural gas,37.5,0.351
+BNA0735,Thyrow,DE_BB,52.23,13.3,Natural gas,37.5,0.351
+BNA0736,Thyrow,DE_BB,52.23,13.3,Natural gas,37.5,0.351
+BNA0737,Thyrow,DE_BB,52.23,13.3,Natural gas,37.5,0.351
+BNA0738,Thyrow,DE_BB,52.23,13.3,Natural gas,36.5,0.346
+BNA0739,Thyrow,DE_BB,52.23,13.3,Natural gas,36.5,0.346
+BNA0740,Thyrow,DE_BB,52.23,13.3,Natural gas,36.5,0.346
+BNA0741,Thyrow,DE_BB,52.23,13.3,Natural gas,36.5,0.346
+BNA0742,HKW Sandreuth,DE_BY,49.44,11.06,Natural gas,75,0.563
+BNA0743,HKW Sandreuth,DE_BY,49.44,11.06,Natural gas,75,0.563
+BNA0744,Franken 1,DE_BY,49.42,11.01,Natural gas,383,0.419
+BNA0745,Franken 1,DE_BY,49.42,11.01,Natural gas,440,0.432
+BNA0746,HKW Sandreuth,DE_BY,49.44,11.06,Waste,18,0.33
+BNA0750,GMVA Niederrhein,DE_NRW,51.49,6.83,Waste,40.4,0.33
+BNA0751,GMVA Niederrhein,DE_NRW,51.49,6.83,Waste,21.1,0.33
+BNA0752,HKW 1,DE_NRW,51.47,6.86,Natural gas,23.1,0.354
+BNA0753,HKW 2,DE_NRW,51.47,6.86,Natural gas,24.5,0.38
+BNA0755a,Obernburg,DE_BY,49.83,9.15,Natural gas,36,0.18
+BNA0755b,Obernburg,DE_BY,49.83,9.15,Natural gas,64,0.518
+BNA0758,Heizkraftwerk Offenbach,DE_HE,50.07,8.77,Hard coal,54,0.4
+BNA0759,Itzehoe,DE_SH,53.97,9.45,Oil,88,0.354
+BNA0766,Audorf,DE_SH,54.29,9.72,Oil,87,0.355
+BNA0785,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0786,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0787,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0788,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0789,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0790,KW Jänschwalde,DE_BB,51.83,14.46,Lignite,465,0.39
+BNA0793,Heyden,DE_NRW,52.38,9,Hard coal,875,0.393
+BNA0799,Heizkraftwerk Pforzheim GmbH,DE_BW,48.88,8.67,Natural gas,11.3,0.351
+BNA0800,Heizkraftwerk Pforzheim GmbH,DE_BW,48.88,8.67,Natural gas,41.2,0.45
+BNA0801,Heizkraftwerk Pforzheim GmbH,DE_BW,48.88,8.67,Hard coal,26.9,0.4
+BNA0802,Kernkraftwerk Philippsburg 2,DE_BW,49.25,8.44,Nuclear,1402,0.33
+BNA0804a,Hattorf,DE_HE,50.81,9.98,Natural gas,35,0.343
+BNA0804b,Hattorf,DE_HE,50.84,9.98,Natural gas,17.3,0.399
+BNA0805,Kraftwerk Plattling,DE_BY,48.79,12.88,Natural gas,97.9,0.585
+BNA0810,Kraftwerk Veltheim,DE_NRW,52.19,8.93,Natural gas,65,0.312
+BNA0813,Kraftwerk Veltheim,DE_NRW,52.19,8.93,Hard coal,303,0.35
+BNA0814,HKW Potsdam-Süd,DE_BE,52.37,13.11,Natural gas,81.8,0.381
+BNA0820,Weiher,DE_SL,49.33,7.03,Hard coal,655.6,0.365
+BNA0832,BHKW-Hauffstraße,DE_BW,48.49,9.19,Natural gas,9.8,0.457
+BNA0834,Solvay Kraftwerk Rheinberg,DE_NRW,51.56,6.58,Natural gas,79,0.315
+BNA0842a,Gasmotore,DE_BY,47.86,12.13,Natural gas,9.8,0.457
+BNA0842b,Gasmotor 4,DE_BY,47.86,12.13,Natural gas,9.2,0.46
+BNA0843,Gasmotor 5,DE_BY,47.86,12.13,Natural gas,4.3,0.459
+BNA0845,MHKW,DE_BY,47.86,12.13,Waste,9,0.33
+BNA0848,GuD Marienehe,DE_MV,54.13,12.08,Natural gas,108,0.522
+BNA0849,KNG Kraftwerk Rostock,DE_MV,54.14,12.13,Hard coal,514,0.41
+BNA0855,IKW Rüdersdorf,DE_BB,52.49,13.83,Waste,30,0.33
+BNA0856,HKW Schwarza,DE_TH,50.69,11.33,Natural gas,26.5,0.394
+BNA0857,GuD-Anlage Rüsselsheim,DE_RP,49.99,8.41,Natural gas,112.1,0.536
+BNA0861a,HKW Römerbrücke,DE_SL,49.22,7.01,Natural gas,75,0.594
+BNA0861b,HKW Römerbrücke,DE_SL,49.22,7.01,Hard coal,50,0.438
+BNA0878,Schkopau,DE_ST,51.4,11.95,Lignite,450,0.39
+BNA0879,Schkopau,DE_ST,51.4,11.95,Lignite,450,0.39
+BNA0893,GuD Schwarzheide,DE_BB,51.48,13.89,Natural gas,122,0.513
+BNA0894a,IKS PCK Schwedt,DE_BB,53.1,14.23,Oil,28,0.354
+BNA0894b,IKS PCK Schwedt,DE_BB,53.1,14.23,Oil,34.5,0.378
+BNA0894c,IKS PCK Schwedt,DE_BB,53.1,14.23,Oil,106,0.383
+BNA0894d,IKS PCK Schwedt,DE_BB,53.1,14.23,Oil,106,0.383
+BNA0894e,IKS PCK Schwedt,DE_BB,53.1,14.23,Oil,59,0.397
+BNA0895,GKS,DE_BY,50.03,10.22,Waste,24.4,0.33
+BNA0896,HKW Schwerin Süd,DE_MV,53.58,11.4,Natural gas,44.9,0.378
+BNA0897,HKW Schwerin Lankow,DE_MV,53.65,11.37,Natural gas,23,0.378
+BNA0914,Schwarze Pumpe,DE_SN,51.53,14.35,Lignite,750,0.393
+BNA0915,Schwarze Pumpe,DE_SN,51.53,14.35,Lignite,750,0.395
+BNA0918a,Dow Stade,DE_NI,53.65,9.51,Natural gas,190,0.354
+BNA0918b,Dow Stade,DE_NI,53.65,9.51,Natural gas,173,0.603
+BNA0922,GuD-Ikw Staßfurt,DE_ST,51.87,11.57,Natural gas,132,0.522
+BNA0926b,Heizkraftwerk der Sappi Stockstadt GmbH,DE_BY,49.98,9.07,Hard coal,24.8,0.348
+BNA0934,Heizkraftwerk Stuttgart-Gaisburg,DE_BW,48.78,9.23,Hard coal,22.6,0.448
+BNA0935,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.82,9.22,Hard coal,45,0.38
+BNA0936,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.82,9.22,Hard coal,45,0.385
+BNA0937,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.82,9.22,Oil,23.3,0.312
+BNA0938,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.82,9.22,Oil,23.3,0.312
+BNA0939a,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.81,9.22,Waste,19.5,0.33
+BNA0939b,Restmüll-Heizkraftwerk Stuttgart-Münster,DE_BW,48.82,9.22,Oil,23.3,0.312
+BNA0957,BHKW Obere Viehweide,DE_BW,48.51,9.07,Natural gas,13.4,0.385
+BNA0969a,Nord 1,DE_BY,48.18,11.64,Waste,18,0.33
+BNA0969b,Nord 2,DE_BY,48.18,11.64,Hard coal,332.7,0.403
+BNA0969c,Nord 3,DE_BY,48.18,11.64,Waste,22,0.33
+BNA0989,KW West,DE_NRW,51.58,6.68,Hard coal,318,0.353
+BNA0990,KW West,DE_NRW,51.58,6.68,Hard coal,322,0.353
+BNA0991,KW Voerde,DE_NRW,51.58,6.69,Hard coal,695,0.438
+BNA0992,KW Voerde,DE_NRW,51.58,6.69,Hard coal,695,0.438
+BNA0993,Irsching,DE_BY,48.77,11.58,Natural gas,415,0.356
+BNA0994,Gemeinschaftskraftwerk Irsching ,DE_BY,48.77,11.58,Natural gas,846,0.585
+BNA0995,Ulrich Hartmann (Irsching),DE_BY,48.77,11.58,Natural gas,545,0.59
+BNA0998,Modellkraftwerk,DE_SL,49.25,6.88,Hard coal,179,0.38
+BNA0999,Heizkraftwerk,DE_SL,49.25,6.88,Hard coal,211,0.398
+BNA1002,Wählitz,DE_SN,51.17,12.08,Lignite,31,0.386
+BNA1004,Kraftwerk Walheim,DE_BW,49.02,9.16,Oil,136,0.331
+BNA1005,Kraftwerk Walheim,DE_BW,49.02,9.16,Hard coal,96,0.453
+BNA1006,Kraftwerk Walheim,DE_BW,49.02,9.16,Hard coal,148,0.453
+BNA1007a,SKW Gasturbine,DE_BY,47.68,10.32,Oil,24,0.349
+BNA1007b,SKW Diesel,DE_BY,47.68,10.32,Oil,10.5,0.361
+BNA1015,Wedel,DE_SH,53.57,9.73,Oil,50.5,0.307
+BNA1016,Wedel,DE_SH,53.57,9.73,Oil,50.5,0.307
+BNA1020,MVA Weisweiler,DE_NRW,50.84,6.32,Waste,24,0.33
+BNA1025,Weisweiler,DE_NRW,50.84,6.32,Lignite,312,0.316
+BNA1026,Weisweiler,DE_NRW,50.84,6.32,Lignite,304,0.321
+BNA1027,Weisweiler,DE_NRW,50.84,6.32,Lignite,592,0.338
+BNA1028,Weisweiler,DE_NRW,50.84,6.32,Lignite,592,0.34
+BNA1037,Kraftwerk Werdohl-Elverlingsen,DE_NRW,51.28,7.71,Hard coal,310,0.38
+BNA1039,Gersteinwerk,DE_NRW,51.67,7.71,Natural gas,55,0.419
+BNA1040,Gersteinwerk,DE_NRW,51.67,7.71,Natural gas,55,0.419
+BNA1041,Gersteinwerk,DE_NRW,51.67,7.71,Natural gas,55,0.31
+BNA1042,Gersteinwerk,DE_NRW,51.67,7.71,Natural gas,55,0.31
+BNA1046a,Gersteinwerk,DE_NRW,51.67,7.71,Hard coal,607.5,0.385
+BNA1046b,Gersteinwerk,DE_NRW,51.67,7.71,Natural gas,112,0.338
+BNA1056,Wi-Biebrich,DE_RP,50.04,8.25,Natural gas,25,0.392
+BNA1060,Wilhelmshaven,DE_NI,53.57,8.15,Oil,56,0.31
+BNA1061,Wilhelmshaven,DE_NI,53.57,8.15,Hard coal,757,0.365
+BNA1074,Spitzenlastkraftwerk Wolfen,DE_ST,51.64,12.23,Natural gas,40,0.382
+BNA1075a,HKW Nord,DE_HE,51.25,9.44,Hard coal,61.5,0.425
+BNA1075b,HKW Nord,DE_NI,52.43,10.79,Hard coal,61.5,0.425
+BNA1076a,HKW West,DE_HE,51.25,9.44,Hard coal,138.5,0.388
+BNA1076b,HKW West,DE_HE,52.44,10.76,Hard coal,138.5,0.388
+BNA1078,HKW Wörth,DE_BW,49.07,8.31,Natural gas,59,0.394
+BNA1082,HKW Barmen,DE_NRW,51.27,7.2,Natural gas,82,0.563
+BNA1083,Spitzenlastanlage Barmen,DE_NRW,51.27,7.2,Oil,60,0.38
+BNA1084,HKW Elberfeld ,DE_NRW,51.25,7.12,Hard coal,85,0.398
+BNA1085,Heizkraftwerke an der Friedensbrücke,DE_BY,49.8,9.92,Natural gas,23,0.41
+BNA1086,Heizkraftwerke an der Friedensbrücke,DE_BY,49.8,9.92,Natural gas,25,0.509
+BNA1087,Heizkraftwerke an der Friedensbrücke,DE_BY,49.8,9.92,Natural gas,29.5,0.581
+BNA1088,Heizkraftwerke an der Friedensbrücke,DE_BY,49.8,9.92,Natural gas,44.5,0.563
+BNA1089,Zielitz,DE_ST,52.3,11.68,Natural gas,52,0.381
+BNA1092,Zolling,DE_BY,48.46,11.8,Oil,46,0.318
+BNA1093,Zolling,DE_BY,48.46,11.8,Hard coal,472,0.453
+BNA1094,Gaskraftwerk,DE_NRW,50.71,6.65,Natural gas,15.1,0.348
+BNA1097,Kohlekraftwerk,DE_NRW,50.71,6.65,Lignite,14.4,0.424
+BNA1103,UPM Augsburg,DE_BY,48.38,10.9,Natural gas,29,0.348
+BNA1104,Heizkraftwerk,DE_BY,48.38,10.9,Natural gas,18,0.359
+BNA1105,HKW Bad Salzungen,DE_TH,50.8,10.22,Natural gas,9.7,0.378
+BNA1108,PD energy GmbH,DE_ST,51.63,12.29,Waste,9.9,0.33
+BNA1110,Restmüllheizkraftwerk Böblingen,DE_BW,48.69,9.05,Waste,9.5,0.33
+BNA1114,MHKW,DE_HB,53.11,8.82,Waste,44,0.33
+BNA1116,BEG,DE_NI,53.55,8.62,Waste,14,0.33
+BNA1117,Industriekraftwerk Breuberg,DE_BY,49.81,9.01,Natural gas,11.4,0.384
+BNA1119,MHKW Burgkirchen,DE_BY,48.19,12.74,Waste,12.5,0.33
+BNA1120,Energiezentrale,DE_NRW,51.57,7.3,Natural gas,10.2,0.357
+BNA1121,Energiezentrale,DE_NRW,51.57,7.3,Natural gas,0.9,0.391
+BNA1125,Heizkraftwerk,DE_HE,49.88,8.63,Natural gas,10,0.377
+BNA1127,GHD,DE_BY,48.64,12.46,Natural gas,6.7,0.375
+BNA1128,GHD,DE_BY,48.64,12.46,Natural gas,6.7,0.375
+BNA1131,MT Düren,DE_NRW,50.77,6.49,Natural gas,14,0.397
+BNA1138,BHKW an Klinkerweg,DE_NRW,51.22,6.95,Natural gas,10.2,0.385
+BNA1139,TREA Breisgau,DE_BW,47.89,7.62,Waste,13.6,0.33
+BNA1141,P&L Werk Euskirchen,DE_RP,50.66,6.81,Lignite,14.5,0.431
+BNA1144,EEW Göppingen,DE_BW,48.68,9.67,Waste,11,0.33
+BNA1148,MVA Hamm,DE_NRW,51.68,7.74,Waste,14.6,0.33
+BNA1151,KWKK Heidelberg,DE_BW,49.42,8.67,Natural gas,13.5,0.387
+BNA1154,RZR Herten I,DE_NRW,51.56,7.16,Waste,12.5,0.33
+BNA1155,RZR Herten II,DE_NRW,51.56,7.16,Waste,17.1,0.33
+BNA1161,MVA Ingolstadt,DE_BY,48.76,11.49,Waste,25.5,0.33
+BNA1164,P&L Werk Jülich,DE_NRW,50.92,6.37,Lignite,24.6,0.41
+BNA1165,P&L Werk Appeldorn,DE_NRW,51.73,6.36,Natural gas,11.4,0.389
+BNA1166,Abfallentsorgungszentrum Asdonkshof,DE_NRW,51.52,6.57,Oil,4.8,0.382
+BNA1167,Abfallentsorgungszentrum Asdonkshof,DE_NRW,51.52,6.57,Waste,16,0.33
+BNA1168,Müllheizkraftwerk,DE_HE,51.3,9.52,Waste,14.7,0.33
+BNA1182,HKW Merkenich,DE_NRW,51.02,6.96,Natural gas,15.5,0.347
+BNA1183,HKW Merheim,DE_NRW,50.94,7.09,Natural gas,15.8,0.545
+BNA1184,RMVA Köln,DE_NRW,51,6.94,Waste,45.1,0.33
+BNA1185,P&L Werk Könnern,DE_ST,51.7,11.76,Lignite,20.3,0.383
+BNA1186a,MKVA Krefeld,DE_NRW,51.38,6.64,Waste,13.5,0.33
+BNA1186b,MKVA Krefeld,DE_NRW,51.38,6.64,Waste,13.8,0.33
+BNA1186c,MKVA Krefeld,DE_NRW,51.38,6.64,Waste,1.5,0.33
+BNA1186d,MKVA Krefeld,DE_NRW,51.38,6.64,Waste,2.8,0.33
+BNA1186e,MKVA Krefeld,DE_NRW,51.38,6.64,Waste,1.5,0.33
+BNA1187,P&L Werk Lage,DE_NRW,51.99,8.81,Natural gas,10.2,0.363
+BNA1190,Thermische Abfallbehandlung Lauta GmbH & Co. oHG,DE_SN,51.45,14.11,Waste,15.7,0.33
+BNA1193,HKW-West,DE_NRW,52.03,8.87,Natural gas,12.8,0.387
+BNA1196a,BHKW Ludwigshafen,DE_RP,49.45,8.43,Natural gas,12.5,0.394
+BNA1196b,Industriekraftwerk Ludwigshafen,DE_RP,49.45,8.43,Natural gas,12,0.554
+BNA1197,FHKW Ludwigshafen,DE_RP,49.49,8.43,Waste,28,0.33
+BNA1198,SITA Abfallverwertung GmbH ,DE_SN,51.18,12.02,Waste,25.4,0.33
+BNA1199,MHKW Mainz,DE_RP,50.03,8.24,Waste,15.6,0.33
+BNA1200,GuD-Kraftwerk,DE_RP,49.53,8.47,Natural gas,17.2,0.563
+BNA1212,DKW Nord,DE_BY,48.06,10.49,Oil,11.4,0.372
+BNA1222,Müllheizkraftwerk Offenbach,DE_HE,50.07,8.77,Waste,10.4,0.33
+BNA1225,PWG,DE_BY,47.79,11.06,Natural gas,5.3,0.373
+BNA1226,PWG,DE_BY,47.79,11.06,Natural gas,5.3,0.371
+BNA1227,DKW Leinau,DE_BY,47.91,10.61,Oil,11.4,0.366
+BNA1229,MHKW Pirmasens,DE_SL,49.23,7.6,Waste,15,0.33
+BNA1232,ZWSF,DE_BB,52.54,12.36,Waste,2.5,0.33
+BNA1233,EVE,DE_BB,52.54,12.36,Waste,14.5,0.33
+BNA1238,Kraftwerk Meggle,DE_BY,48.06,12.19,Natural gas,12.6,0.385
+BNA1243,EBS-HKW Rostock,DE_MV,54.14,12.14,Waste,17,0.33
+BNA1244,AVA Velsen,DE_SL,49.21,6.83,Waste,15.8,0.33
+BNA1248a,UPM Schongau,DE_BY,47.81,10.9,Natural gas,82,0.351
+BNA1248b,HKW3 UPM Schongau,DE_BY,47.81,10.9,Natural gas,65,0.402
+BNA1254,Müllkraftwerk Schwandorf,DE_BY,49.31,12.09,Waste,54,0.33
+BNA1255,Kraftwerk Schwedt GmbH & Co.KG,DE_BB,53.08,14.32,Waste,28.9,0.33
+BNA1260,Heizkraftwerk Sindelfingen,DE_BW,48.7,9,Natural gas,95,0.399
+BNA1261,Stapelfeld,DE_HH,53.62,10.22,Waste,16.4,0.33
+BNA1262,REMONDIS Thermische Abfallverwertung GmbH,DE_ST,51.87,11.58,Waste,24,0.33
+BNA1264,HKW Bohrhügel,DE_TH,50.63,10.7,Natural gas,13.5,0.38
+BNA1271,Unterbreizbach,DE_HE,50.81,9.98,Natural gas,33.6,0.347
+BNA1279,Gasturbine,DE_NRW,50.83,6.96,Natural gas,51.9,0.428
+BNA1280,Kraftwerk,DE_NRW,50.83,6.96,Oil,66.3,0.38
+BNA1284,Co-Generation,DE_RP,49.66,8.36,Natural gas,11.5,0.375
+BNA1285,Sigmundshall,DE_NI,52.42,9.37,Natural gas,19,0.356
+BNA1286,Restabfallbehandlungsanlage,DE_TH,50.64,10.69,Waste,11.2,0.33
+BNA1289,AMK - Abfallentsorgungsgesellschaft des Märkischen Kreises mbH,DE_NRW,51.4,7.7,Waste,12.6,0.33
+BNA1291,IHKW Andernach,DE_RP,50.43,7.43,Waste,12.5,0.33
+BNA1292a,IHKW Heidenheim,DE_BW,48.67,10.15,Natural gas,11.1,0.366
+BNA1292b,IHKW Heidenheim,DE_BW,48.67,10.15,Natural gas,15.4,0.385
+BNA1293b,Kraftwerk,DE_NRW,50.95,6.67,Lignite,10,0.388
+BNA1294,EEV,DE_HH,53.49,9.97,Oil,38,0.377
+BNA1295,AVA GmbH,DE_BY,48.4,10.94,Waste,10,0.33
+BNA1315,HKW,DE_BW,48.01,7.84,Natural gas,27,0.386
+BNA1316,Müllheizkraftwerk,DE_NRW,51.23,7.14,Waste,30,0.33
+BNA1327a,Energiezentrale 1992,DE_BY,48.36,11.79,Natural gas,11.1,0.376
+BNA1327b,Erweiterung Energiezentrale 2003,DE_BY,48.36,11.79,Natural gas,7.4,0.388
+BNA1328,HBB,DE_BY,47.8,12.12,Natural gas,24,0.386
+BNA1329,K&N PFK AG EV,DE_SN,51.05,13.02,Natural gas,12.8,0.509
+BNA1330,Steinbeis Energie,DE_SH,53.78,9.43,Waste,17,0.33
+BNA1331,Reno De Medici,DE_NRW,51.39,8.07,Hard coal,19,0.315
+BNA1332,INEOS Kraftwerk,DE_NRW,51.47,6.64,Natural gas,24,0.38
+BNA1333a,HKW Pfaffenwald,DE_BW,48.75,9.11,Natural gas,12.2,0.372
+BNA1333b,HKW Pfaffenwald,DE_BW,48.75,9.11,Natural gas,11.3,0.351
+BNA1333c,HKW Pfaffenwald,DE_BW,48.75,9.11,Natural gas,11.6,0.35
+BNA1334,KWK-Anlage,DE_NI,53.12,8.73,Natural gas,14.8,0.549
+BNA1335a,PKV Kraftwerk,DE_NI,53.4,8.13,Natural gas,58.1,0.373
+BNA1335b,PKV Kraftwerk,DE_NI,53.4,8.13,Natural gas,0.5,0.35
+BNA1336,Holthausen,DE_NRW,51.18,6.84,Natural gas,84,0.328
+BNA1337d,Notstromdiesel,DE_BY,49.99,9.16,Oil,0.5,0.375
+BNA1337e,GuD-Anlage,DE_BY,49.99,9.16,Natural gas,47,0.599
+BNA1338,Spitzenkraftwerk,DE_BY,48.86,13.01,Oil,19,0.361
+BNA1396,EVC / GLOBALFOUNDRIES,DE_SN,51.13,13.72,Natural gas,34.3,0.383
+BNA1400a,EZ1,DE_SN,51.05,12.11,Lignite,18.5,0.383
+BNA1400b,EZ1,DE_SN,51.05,12.11,Oil,18.5,0.377
+BNA1401a,BoA 2,DE_NRW,51.04,6.61,Lignite,1050,0.429
+BNA1401b,BoA 3,DE_NRW,51.04,6.61,Lignite,1050,0.429
+BNA1402,Heizkraftwerk zur Papierfabrik,DE_NI,52.62,7.86,Natural gas,18.1,0.38
+BNA1403,Steinitz,DE_NI,52.83,11.1,Natural gas,11.4,0.38
+BNA1404,Boxberg,DE_SN,51.42,14.57,Lignite,640,0.429
+BNA1405a,Heizkraftwerk Magirusstraße,DE_BW,48.4,9.96,Hard coal,20.7,0.37
+BNA1406,FS-Karton,DE_NRW,51.22,6.7,Natural gas,18.9,0.376
+BNA1407,STW,DE_SN,50.87,13.39,Natural gas,13.5,0.393
+BNA1408,Heizkraftwerk Evonik Rheinfelden,DE_BW,47.57,7.81,Natural gas,16,0.363
+BNA1437,KWK AOS GmbH,DE_NI,53.66,9.5,Natural gas,30.7,0.411
+BNA1444a,GT1 ,DE_BY,49.41,11.13,Natural gas,4.2,0.362
+BNA1444b,GT2 ,DE_BY,49.41,11.13,Natural gas,4.2,0.362
+BNA1444c,GT3 ,DE_BY,49.41,11.13,Natural gas,5.1,0.364
+BNA1444d,GT4 ,DE_BY,49.41,11.13,Natural gas,5.1,0.367
+BNA1447a,Worms,DE_RP,49.65,8.36,Waste,11.9,0.33
+BNA1447b,Worms,DE_RP,49.65,8.36,Waste,6.9,0.33
+BNA1448,AHKW Neunkirchen,DE_SL,49.34,7.17,Waste,11.6,0.33
+BNA1449a,Turbosatz 1,DE_BY,49.79,9.99,Waste,8.7,0.33
+BNA1449b,Turbosatz 2,DE_BY,49.79,9.99,Waste,12,0.33
+BNA1450,GUD-Anlage DREWSEN,DE_NI,52.62,10.25,Natural gas,13,0.54
+BNA1451,HKW Sachtleben,DE_NRW,51.44,6.71,Lignite,27.5,0.309
+BNA1461,Zeitz,DE_SN,51.05,12.11,Lignite,17.5,0.412
+BNA1463,Herzberg,DE_TH,51.66,10.35,Natural gas,19.5,0.361
+BNA1464,Gas- u. Dampfturbinenanlage Südraum,DE_SL,49.21,6.98,Natural gas,38.6,0.398
+BNA1465b,Gaskraftwerk,DE_NI,51.32,9.85,Natural gas,13.2,0.358
+BNA1467,Oberkirch,DE_BW,48.53,8.09,Hard coal,18.5,0.39
+BNA1486,Grubenheizkraftwerk,DE_ST,51.46,11.71,Lignite,49,0.35
+BNA1487,GTKW Darmstadt,DE_HE,49.88,8.65,Natural gas,94.6,0.599
+BNA1489,Heizkraftwerk Stendal,DE_ST,52.61,11.83,Natural gas,22,0.378
+BNA1490,EBKW Knapsack,DE_NRW,50.86,6.85,Waste,33.4,0.33
+BNA1492a,Kraftwerk 3,DE_HE,50.57,9.68,Natural gas,26.2,0.374
+BNA1492b,Kraftwerk 2,DE_HE,50.57,9.68,Natural gas,8,0.398
+BNA1498,Werk Nordstemmen,DE_NI,52.17,9.79,Natural gas,30.6,0.333
+BNA1499,Werk Clauen,DE_NI,52.23,10.03,Natural gas,15.8,0.385
+BNA1500,Werk Uelzen,DE_NI,52.98,10.56,Hard coal,40,0.4
+BNA1502,Heizkraftwerk Krefeld,DE_NRW,51.34,6.59,Natural gas,12.6,0.399
+BNA1503,BHKW H.120,DE_NRW,51.25,6.79,Natural gas,16.9,0.398
+BNA1504,BHKW,DE_BW,49.05,8.28,Natural gas,13,0.399
+BNA1505,HKW Wiesengrund,DE_TH,50.98,10.29,Natural gas,22.1,0.377
+BNA1506,Werk Klein Wanzleben,DE_ST,52.07,11.39,Natural gas,23.4,0.378
+BNA1507,Bad Kreuznach,DE_RP,49.86,7.89,Natural gas,10.7,0.392
+BNA1508,Trianel Kohlekraftwerk Lünen,DE_NRW,51.61,7.47,Hard coal,746,0.458
+BNA1509,BP Werk Lingen,DE_NI,52.56,7.3,Natural gas,66,0.381
+BNA1510,Hamburger Rieger,DE_SN,51.52,14.34,Waste,18.7,0.33
+BNA1511a,Kessel 4,DE_NRW,50.78,6.49,Lignite,9.3,0.359
+BNA1511b,Kessel 2,DE_NRW,50.78,6.49,Natural gas,2.9,0.349
+BNA1516,HKW 1 Werk Offstein,DE_RP,49.6,8.22,Natural gas,30,0.376
+BNA1520,Biomasseheizkraftwerk Wiesbaden,DE_RP,50.04,8.26,Waste,10.5,0.33
+BNA1523a,Gemeinschaftskraftwerk Weig,DE_RP,50.32,7.23,Natural gas,42,0.504
+BNA1523b,Gemeinschaftskraftwerk Weig,DE_RP,50.32,7.23,Natural gas,0,0.599
+BNA1524,Heizkraftwerk Bomlitz,DE_NI,52.9,9.66,Natural gas,22.1,0.288
+BNA1526,Kraftwerk Raffinerie Heide,DE_SH,54.15,9.08,Oil,44.5,0.343
+BNA1528,Stadtwerk Kempen,DE_NRW,47.73,10.32,Natural gas,13.2,0.374
+BNA1531,Industriekraftwerk Greifswald,DE_MV,54.14,13.67,Natural gas,37.7,0.4
+BNA1541,HKW Freiberg,DE_SN,50.91,13.32,Natural gas,13.4,0.399
+BNA1556,Leppersdorf,DE_SN,51.15,13.98,Natural gas,36,0.4
+BNA1557,Zwickau,DE_SN,50.79,12.49,Natural gas,12.9,0.4
+BNA1558,Moorburg B,DE_HH,53.49,9.95,Hard coal,766,0.463
+BNA1658,HKW-Mitte,DE_NRW,52.03,8.91,Natural gas,11.3,0.363
+BNA1671,Bremerhaven,DE_NI,53.59,8.53,Natural gas,17.1,0.4
+BNA1673,Moorburg A,DE_HH,53.49,9.95,Hard coal,774,0.463
+BNA1674,Kraftwerk Wilhelmshaven,DE_NI,53.58,8.13,Hard coal,731,0.463
+BNA1677,BHKW Braunschweig,DE_NI,52.3,10.52,Natural gas,10.4,0.402
+BNA1678,Energiezentrale 2016,DE_BY,48.35,11.77,Natural gas,17.2,0.402
+BNA0046,Säckingen,DE_BW,47.57,7.95,Hydro,360,0.75
+BNA0228,Waldeck1/Bringhausen,DE_HE,51.17,9.05,Hydro,143,0.75
+BNA0229,Waldeck 2,DE_HE,51.17,9.05,Hydro,480,0.75
+BNA0268,Pumpspeicherwerk Rönkhausen,DE_NRW,51.22,7.99,Hydro,138,0.749
+BNA0279,Rudolf-Fettweis-Werk     ,DE_BW,48.67,8.35,Hydro,43,0.749
+BNA0327,Geesthacht,DE_NI,53.43,10.34,Hydro,119.1,0.75
+BNA0337,PSW Langenprozelten,DE_BW,50.05,9.58,Hydro,164,0.75
+BNA0350,Goldisthal,DE_TH,50.51,11.02,Hydro,1052,0.75
+BNA0426,Häusern,DE_BW,47.75,8.19,Hydro,100,0.75
+BNA0443,Koepchenwerk,DE_NRW,51.41,7.45,Hydro,153,0.751
+BNA0465,Hohenwarte 1,DE_TH,50.61,11.49,Hydro,59.8,0.749
+BNA0467,Hohenwarte 2,DE_TH,50.6,11.48,Hydro,317.8,0.751
+BNA0558,Erzhausen,DE_NI,51.9,9.92,Hydro,220,0.75
+BNA0652,Markersbach,DE_SN,50.52,12.88,Hydro,1045.2,0.751
+BNA0669,Pumpspeicherkraftwerk Glems,DE_BW,48.5,9.29,Hydro,90,0.749
+BNA0721,Niederwartha,DE_SN,51.09,13.61,Hydro,39.8,0.749
+BNA0882,Bleiloch,DE_TH,50.52,11.71,Hydro,79.8,0.75
+BNA0946a,Kraftwerksgruppe Pfreimd,DE_BY,49.55,12.28,Hydro,28,0.75
+BNA0953,Kraftwerksgruppe Pfreimd,DE_BY,49.53,12.28,Hydro,99,0.75
+BNA0972,Leitzach 1,DE_BY,47.87,11.87,Hydro,49,0.75
+BNA0973,Leitzach 2,DE_BY,47.87,11.87,Hydro,49.8,0.751
+BNA0987,PSW Vianden,DE_RP,49.95,6.18,Hydro,596,0.75
+BNA1675,PSW Vianden,DE_RP,49.95,6.19,Hydro,500,0.75
+BNA1003,Kraftwerk Waldshut,DE_BW,47.62,8.19,Hydro,150,0.751
+BNA1019,Wehr,DE_BW,47.65,7.92,Hydro,910,0.75
+BNA1031,Wendefurth,DE_TH,51.74,10.92,Hydro,79.7,0.75
+BNA1071,Witznau,DE_BW,47.69,8.25,Hydro,220,0.751
+BNA0012a,Werkskraftwerk Sappi Alfeld,DE_NI,51.98,9.82,Bioenergy,16.8,0.38
+BNA0021,HKW Altenstadt,DE_BY,47.8,10.86,Bioenergy,9.8,0.38
+BNA0027,Zellstoff Stendal GmbH,DE_ST,52.73,12.01,Bioenergy,138.9,0.38
+BNA0055,UTB,DE_BB,52.08,13.52,Bioenergy,16,0.38
+BNA0062,,DE_BB,52.18,14.26,Bioenergy,18.3,0.38
+BNA0066,BMKW Bergkamen,DE_NRW,51.64,7.62,Bioenergy,17.7,0.38
+BNA0068,HHKW Berlin-Neukölln,DE_BE,52.43,13.52,Bioenergy,16.5,0.38
+BNA0090,"ENERTRAG Netz GmbH 
+(UW Bertikow)",DE_BB,53.25,13.96,Bioenergy,20,0.38
+BNA0103,Bioenergyekraftwerk Bischofferode,DE_TH,51.49,10.41,Bioenergy,18.1,0.38
+BNA0106,,DE_TH,51.49,10.41,Bioenergy,53.5,0.38
+BNA0121,,DE_NRW,51.86,6.89,Bioenergy,11.4,0.38
+BNA0156a,Egger Kraftwerk Briilon,DE_NRW,51.41,8.6,Bioenergy,18,0.38
+BNA0169,,DE_BW,49.52,9.33,Bioenergy,28.4,0.38
+BNA0172,Dampfkraftwerk BGH - O1,DE_BY,48.18,12.85,Natural gas,178,0.544
+BNA0176,,DE_ST,51.92,11.8,Bioenergy,10.2,0.38
+BNA0191,,DE_SN,51.51,12.3,Bioenergy,20,0.38
+BNA0192,,DE_SN,51.52,12.32,Bioenergy,20,0.38
+BNA0224,,DE_BB,52.85,13.78,Bioenergy,20,0.38
+BNA0232a,Werkskraftwerk Sappi Ehingen,DE_BW,48.27,9.73,Bioenergy,13.2,0.38
+BNA0232b,Werkskraftwerk Sappi Ehingen,DE_BW,48.27,9.73,Bioenergy,8,0.38
+BNA0242,,DE_SN,51.47,13.5,Bioenergy,12.6,0.38
+BNA0244,Emden Bioenergye,DE_NI,53.34,7.21,Bioenergy,20,0.38
+BNA0250a,Bioenergye-HKW,DE_NI,52.62,6.87,Bioenergy,20,0.38
+BNA0250b,,DE_NI,52.62,6.87,Bioenergy,10.6,0.38
+BNA0277,BMKW Flörsheim Wicker,DE_RP,50.02,8.38,Bioenergy,12.6,0.38
+BNA0283,BKF,DE_HE,50.13,8.77,Bioenergy,12.4,0.38
+BNA0347,,DE_BY,48.63,10.2,Bioenergy,15.7,0.38
+BNA0385,KWK Gütersloh,DE_NRW,51.92,8.4,Bioenergy,12.1,0.38
+BNA0388,Bioenergye-Verstromungs-Anlage,DE_NRW,51.41,7.49,Bioenergy,20,0.38
+BNA0399,Müllverwertung Borsigstraße MVB,DE_HH,53.53,10.07,Bioenergy,20,0.38
+BNA0408,Enertec Hameln,DE_NI,52.1,9.39,Bioenergy,16.8,0.38
+BNA0435,,DE_BB,53.15,12.38,Bioenergy,19.7,0.38
+BNA0483,,DE_NRW,51.88,8.96,Bioenergy,19.9,0.38
+BNA0500,,DE_RP,49.97,8.04,Bioenergy,12.4,0.38
+BNA0520,Stora Enso Maxau,DE_BW,49.04,8.31,Bioenergy,78,0.38
+BNA0549,BMKW Königs Wusterhausen,DE_BB,52.3,13.64,Bioenergy,17.1,0.38
+BNA0553,BMHKW-BinderHolz,DE_BY,48.79,11.51,Bioenergy,15.1,0.38
+BNA0566,,DE_BY,48.49,11.18,Bioenergy,9.6,0.38
+BNA0573,Landesbergen Bioenergye,DE_NI,52.58,9.11,Bioenergy,20,0.38
+BNA0601,,DE_HE,50.7,8.07,Bioenergy,14,0.38
+BNA0617,BMK Lünen ,DE_NRW,51.61,7.48,Bioenergy,20,0.38
+BNA0621,Bioenergyeheizkraftwerk Piesteritz,DE_ST,51.87,12.57,Bioenergy,18.1,0.38
+BNA0628,Bioenergye-Heizkraftwerk Malchin,DE_MV,53.74,12.78,Bioenergy,9.8,0.38
+BNA0636,BMKW Mannheim,DE_RP,49.52,8.46,Bioenergy,17.9,0.38
+BNA0637,SCA Mannheim,DE_RP,49.53,8.46,Bioenergy,59.2,0.38
+BNA0692,KWK Neumarkt,DE_BY,49.26,11.45,Bioenergy,15.6,0.38
+BNA0701,,DE_NRW,51.2,6.71,Bioenergy,12.1,0.38
+BNA0756,,DE_BW,49.01,9.67,Bioenergy,18.8,0.38
+BNA0775,Bioenergye-HKW,DE_NI,53.1,7.4,Bioenergy,20,0.38
+BNA0797,Heizkraftwerk Pforzheim GmbH,DE_BW,48.9,8.73,Bioenergy,12.3,0.38
+BNA0826,BMHKW-RE Recklinghausen,DE_NRW,51.6,7.25,Bioenergy,14,0.38
+BNA0860,,DE_TH,50.5,11.66,Bioenergy,12.9,0.38
+BNA0926a,Heizkraftwerk der Sappi Stockstadt GmbH,DE_BY,49.98,9.07,Bioenergy,14,0.38
+BNA1055,Wi-Biebrich,DE_RP,50.04,8.25,Bioenergy,6.7,0.38
+BNA1091,Zolling,DE_BY,48.46,11.8,Bioenergy,10,0.38
+BNA1256,UPM Schwedt,DE_BB,53.09,14.32,Bioenergy,13.3,0.38
+BNA1335c,PKV Kraftwerk,DE_NI,53.4,8.13,Bioenergy,1.92,0.38
+BNA1337b,Blockheizkraftwerk 1,DE_BY,49.99,9.16,Bioenergy,1.1,0.38
+BNA1337c,Blockheizkraftwerk 2,DE_BY,49.99,9.16,Bioenergy,0.8,0.38
+BNA1398,Energieanlage 3,DE_BB,53.15,12.38,Bioenergy,18.6,0.38
+BNA1405b,BioHKW I,DE_BW,48.4,9.96,Bioenergy,8.7,0.38
+BNA1405c,BioHKW II,DE_BW,48.4,9.96,Bioenergy,4.5,0.38
+BNA1501,Bio HKW Herbrechtingen,DE_BY,48.63,10.2,Bioenergy,14,0.38
+BNA1522,BioEnergie Park Klarsee,DE_BB,53.32,14.27,Bioenergy,17.8,0.38
